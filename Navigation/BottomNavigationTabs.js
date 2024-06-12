@@ -58,7 +58,9 @@ const BottomNavigationTabs = () => {
                             tabBarIcon: ({ color, size }) => (
                                 <MaterialCommunityIcons
                                     name="account-outline" size={size} color={color} />
-                            )
+                            ),
+                            headerTitle:() => null,
+                            headerRight: () => <HeaderRightComponentView />
                         }}
                     />
                 </TabsScreen.Navigator>

@@ -24,33 +24,35 @@ import HomeGetGiftingBannerComponent from "../Components/HomeComponents/HomeGetG
 import HomeWatchAndShopSwiperComponent from "../Components/HomeComponents/HomeWatchAndShopSwiperComponent";
 import HomeLingerieAndSccessoriesSwiperComponet from "../Components/HomeComponents/HomeLingerieAndAccessoriesSwiperComponent";
 import HomeLastSwiperComponentSwiper from "../Components/HomeComponents/HomeLastSwiperComponent";
+import HomePolicyComponent from "../Components/HomeComponents/HomePolicyComponent";
 const BeautyScreen = () => {
-    return(
+    return (
         <ScrollView showsVerticalScrollIndicator={false}>
-        <View style={styles.container}>
-        <SearchBarComponent />
-        {/* <HomeFirstSwiper />
-        <HomeSecondSwiper />
-        <HomeFirstBanner />
-        <HomeThirdSwiperComponent />
-        <HomeFourthSwiperComponent />
-        <HomeFifthSwiperComponent />
-        <HomeSixthSwiperComponent />
-        <HomeOnRadarComponent />
-        <HomeDiscoverSwiperComponent />
-        <HomeStellerSwiperComponent /> */}
-        <HomeHotListCardSwiperComponent />
-        <HomeStayThankYouSwiperComponent />
-        <HomeNykaaTopSwiperComponent />
-        <HomeSeventhSwiperComponent />
-        <HomeSwiperEightComponent />
-        <HomeReadyToSwiperComponent />
-        <HomeBeautyGuideSwiperComponent />
-        <HomeGetGiftingBannerComponent />
-        <HomeWatchAndShopSwiperComponent />
-        <HomeLingerieAndSccessoriesSwiperComponet />
-        <HomeLastSwiperComponentSwiper />
-        </View>
+            <View style={styles.container}>
+                <SearchBarComponent />
+                <HomeFirstSwiper />
+                <HomeSecondSwiper />
+                <HomeFirstBanner />
+                <HomeThirdSwiperComponent />
+                <HomeFourthSwiperComponent />
+                <HomeFifthSwiperComponent />
+                <HomeSixthSwiperComponent />
+                <HomeOnRadarComponent />
+                <HomeDiscoverSwiperComponent />
+                <HomeStellerSwiperComponent />
+                <HomeHotListCardSwiperComponent />
+                <HomeStayThankYouSwiperComponent />
+                <HomeNykaaTopSwiperComponent />
+                <HomeSeventhSwiperComponent />
+                <HomeSwiperEightComponent />
+                <HomeReadyToSwiperComponent />
+                <HomeBeautyGuideSwiperComponent />
+                <HomeGetGiftingBannerComponent />
+                <HomeWatchAndShopSwiperComponent />
+                <HomeLingerieAndSccessoriesSwiperComponet />
+                <HomeLastSwiperComponentSwiper />
+                <HomePolicyComponent />
+            </View>
         </ScrollView>
     )
 }
@@ -58,8 +60,8 @@ const BeautyScreen = () => {
 export default BeautyScreen;
 
 const styles = StyleSheet.create({
-    container : {
-        flex:1,
-        backgroundColor:'#FFFFFF'
+    container: {
+        flex: 1,
+        backgroundColor: '#FFFFFF'
     }
 })
