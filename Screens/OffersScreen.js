@@ -1,13 +1,14 @@
-import { View, Text } from "react-native";
+import { View, Text, } from "react-native";
 
 const OfferScreen = () => {
     return(
         <>
         <View>
-            <Text>This is Offers Screen</Text>
+           <Text>Hey Buddy this is  Offers Screen</Text>
         </View>
         </>
     )
 }
 
 export default OfferScreen;
+
