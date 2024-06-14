@@ -18,10 +18,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/Nykaa Logo.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.satyasaimutyala.NykaaMobileApp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "a946e2a3-667e-449c-8a5c-74947a4fec24"
+      }
     }
   }
 }

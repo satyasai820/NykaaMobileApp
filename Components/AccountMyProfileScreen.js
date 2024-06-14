@@ -1,8 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, ImageBackground, Image } from 'react-native';
 import {Ionicons} from '@expo/vector-icons';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const MyProfile = () => {
+    const [token, setToken] = useState();
+    const [name, setName] = useState();
+    const [email, setEmail] = useState();
+
+    const tokenFun = async () => {
+        try {
+            tokenData = await AsyncStorage.getItem('accessToken')
+            nameVale = await AsyncStorage.getItem('name')
+            emailValue = await AsyncStorage.getItem('email')
+            setToken(tokenData);
+            setName(nameVale);
+            setEmail(emailValue);
+        } catch (e) {
+
+        }
+    }
+    tokenFun();
     return (
         <View style={{backgroundColor:'#FFFFFF', flex:1}}>
             <View style={styles.container}>
@@ -17,11 +35,13 @@ const MyProfile = () => {
             </View>
             <View style={styles.innerContainer}>
                     <Text style={styles.textOne}>Name</Text>
-                    <Text style={styles.textTwo}>User Name</Text>
+                    {token ? (<Text style={styles.textTwo}>{name}</Text>) : (<Text style={styles.textTwo}>User Name</Text>)}
+                   
                 </View>
                 <View style={styles.innerContainer}>
                     <Text style={styles.textOne}>Email</Text>
-                    <Text style={styles.textTwo}>user@gmail.com</Text>
+                    {token ? (<Text style={styles.textTwo}>{email}</Text>) : (<Text style={styles.textTwo}>user@gmail.com</Text>)}
+                    
                 </View>
         </View>
     );

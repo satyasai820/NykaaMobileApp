@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Modal, View, Text, StyleSheet, Image, TextInput, KeyboardAvoidingView, Pressable, Alert } from "react-native";
+import { Modal, View, Text, StyleSheet, Image, TextInput, KeyboardAvoidingView, Pressable, Alert, TouchableOpacity } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
 import { firebase } from '../firebase'
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useNavigation } from '@react-navigation/native';
 
 const ModalFormComponent = ({ handleCloseModal }) => {
     const [isSignIn, setIsSiginIn] = useState(false);
@@ -12,23 +13,26 @@ const ModalFormComponent = ({ handleCloseModal }) => {
         email: '',
         password: ''
     });
+    const navigation = useNavigation();
 
     const isValidation = () => {
         const errors = {};
         let isValid = true;
 
-        if (!formData.name.trim()) {
-            errors.name = "Name is required";
-            isValid = false;
-        } else if (formData.name.trim().length < 3) {
-            errors.name = "It must be at least 3 characters";
-            isValid = false;
-        } else if (/\d/.test(formData.name.trim())) {
-            errors.name = "Name must not contain numbers";
-            isValid = false;
-        } else if (/[^a-zA-Z ]/.test(formData.name.trim())) {
-            errors.name = "Must not contain special characters";
-            isValid = false;
+        if (isSignIn) { 
+            if (!formData.name.trim()) {
+                errors.name = "Name is required";
+                isValid = false;
+            } else if (formData.name.trim().length < 3) {
+                errors.name = "It must be at least 3 characters";
+                isValid = false;
+            } else if (/\d/.test(formData.name.trim())) {
+                errors.name = "Name must not contain numbers";
+                isValid = false;
+            } else if (/[^a-zA-Z ]/.test(formData.name.trim())) {
+                errors.name = "Must not contain special characters";
+                isValid = false;
+            }
         }
 
         if (!formData.email.trim()) {
@@ -62,7 +66,6 @@ const ModalFormComponent = ({ handleCloseModal }) => {
         if (!isValidation()) {
             return;
         }
-        // if (isSignIn) {
             e.preventDefault();
             try {
                 await firebase.auth().createUserWithEmailAndPassword(formData.email, formData.password);
@@ -70,32 +73,68 @@ const ModalFormComponent = ({ handleCloseModal }) => {
                 await user.updateProfile({
                     displayName: formData.name,
                 });
+                const accessToken = await user.getIdToken();
+                console.log('this is users --->', accessToken);
                 await AsyncStorage.setItem('email', user.email);
                 await AsyncStorage.setItem('name', user.displayName);
+                await AsyncStorage.setItem('accessToken', accessToken);
                 Alert.alert('Congratulations!', 'Your account has been successfully created.')
+                navigation.navigate('Account')
+                handleCloseModal();
             } catch (error) {
                 console.log(error.message);
                 Alert.alert('It looks like you already have an account', 'Please log in instead')
             }
-        // } else {
-        //     try {
-        //         await firebase.auth().signInWithEmailAndPassword(formData.email, formData.password);
-        //         const user = firebase.auth().currentUser;
-        //         await AsyncStorage.setItem('email', user.email);
-        //         await AsyncStorage.setItem('name', user.displayName);
-        //         Alert.alert('You have successfully logged in.','Welcome back!')
-        //     } catch (error) {
-        //         console.log(error);
-        //         Alert.alert('It looks like you don`t have an account', 'Please sign up first')
-        //     }
-        // }
-
+          
+       
         setFormData({
             name: '',
             email: '',
             password: ''
         });
     }
+
+
+   const handleLoginFunction = async () => {
+
+    if (!isValidation()) {
+        Alert.alert('Validation Failed', 'Please check the input fields');
+        return;
+    }
+
+    try {
+        await firebase.auth().signInWithEmailAndPassword(formData.email, formData.password);
+        const user = firebase.auth().currentUser;
+      
+    if (user) {
+        const accessToken = await user.getIdToken();
+        console.log('Access Token:', accessToken);
+        await AsyncStorage.setItem('email', user.email);
+        await AsyncStorage.setItem('name', user.displayName);
+        await AsyncStorage.setItem('accessToken', accessToken);
+        Alert.alert('You have successfully logged in.', 'Welcome back!');
+        navigation.navigate('Account')
+        handleCloseModal();
+    } else {
+        Alert.alert('User is not authenticated.');
+    }
+    } catch (error) {
+        console.log(error);
+        Alert.alert('It looks like you don`t have an account', 'Please sign up first')
+    }
+    
+    setFormData({
+        name: '',
+        email: '',
+        password: ''
+    });
+
+    }
+
+   const handleGoogleAccount = () => {
+        Alert.alert('sdfghjk')
+    }
+
 
     const handleToggleButton = () => {
         setIsSiginIn((prevIsSignIn) => !prevIsSignIn);
@@ -109,7 +148,7 @@ const ModalFormComponent = ({ handleCloseModal }) => {
                         <Ionicons name='close-outline' size={25} style={{ marginLeft: 'auto' }} onPress={handleCloseModal} />
                         <View style={styles.FirstView}>
                             <Image style={{ width: 85, height: 25 }} source={require('../assets/nykaa-1.png')} />
-                            <Text style={styles.title}>Login or Signup</Text>
+                            <Text style={styles.title}>{isSignIn ? 'Signup' : 'Login' } </Text>
                             <Text style={{ color: 'grey' }}>Get Started & grab best offers on top brands!</Text>
                         </View>
                         <View>
@@ -145,17 +184,23 @@ const ModalFormComponent = ({ handleCloseModal }) => {
                             </View>
                         </View>
                         <View style={{ flexDirection: 'row', marginVertical: 10 }}>
+                            {isSignIn ? (
                             <Pressable onPress={handleSignUpFunction} style={({ pressed }) => pressed ? [styles.buttonContainer, styles.pressed] : styles.buttonContainer}>
-                                <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 14 }}>{isSignIn ? 'Sign Up' : 'Log In'}</Text>
+                                <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 16 }}>Sign Up</Text>
                             </Pressable>
+                            ) : (
+                                <Pressable onPress={handleLoginFunction} style={({ pressed }) => pressed ? [styles.buttonContainer, styles.pressed] : styles.buttonContainer}>
+                                    <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 16 }}>Log In</Text>
+                                </Pressable>
+                            )}
                         </View>
-                        <Text style={{ marginHorizontal: 'auto' }}>
+                        <Text style={{ marginHorizontal: 'auto', marginBottom:5 }}>
                             <Text>{isSignIn ? 'Already have an account' : 'Don`t have an account'} <Text style={{ color: '#E80071', fontWeight: 'bold' }} onPress={handleToggleButton}> {isSignIn ? 'Log in' : 'Sign Up'}</Text> </Text>
                         </Text>
-                        <View style={styles.googleButton}>
+                        <TouchableOpacity style={styles.googleButton} onPress={handleGoogleAccount}>
                             <Text style={{ padding: 8, fontSize: 17, color: 'grey', fontWeight: 'bold' }}>Continue With Google</Text>
                             <Ionicons name="logo-google" size={18} style={{ marginLeft: 'auto', paddingRight: 10 }} />
-                        </View>
+                        </TouchableOpacity>
                     </View>
                 </View>
             </KeyboardAvoidingView>

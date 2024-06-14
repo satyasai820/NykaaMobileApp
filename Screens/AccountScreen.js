@@ -5,14 +5,15 @@ import AccountFooterComponent from "../Components/AccountFooterComponent";
 import { useState } from "react";
 import ModalFormComponent from "../Components/AccountModalFormComponent";
 import { useNavigation } from "@react-navigation/native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const AccountScreen = () => {
 
     const navigation = useNavigation();
 
-    const dataOfText = [{ m1: 'Order', m2: 'Check your orders status (track, return, cancle etc)', icon: 'tablet-portrait-outline',path:'Orders' },{ m1: 'Profile', m2: 'Edit/update your profike details & more', icon: 'person-outline', path:'MyProfile' }, { m1: 'Wallet', m2: 'Check your Nykaa Wallet balance', icon: 'card-outline', path:'Wallet' }, { m1: 'Wishlist', m2: 'Buy from items saved in Wishlist', icon: 'heart-outline', path:'Wishlist'},]
+    const dataOfText = [{ m1: 'Order', m2: 'Check your orders status (track, return, cancle etc)', icon: 'tablet-portrait-outline', path: 'Orders' }, { m1: 'Profile', m2: 'Edit/update your profike details & more', icon: 'person-outline', path: 'MyProfile' }, { m1: 'Wallet', m2: 'Check your Nykaa Wallet balance', icon: 'card-outline', path: 'Wallet' }, { m1: 'Wishlist', m2: 'Buy from items saved in Wishlist', icon: 'heart-outline', path: 'Wishlist' },]
 
-    const textData = [ { m1: 'Loyalty Program', m2: 'Shop for ₹2000 to be become a member', icon: 'school-outline' }, { m1: 'Beauty Portflio', m2: 'Personalise your Nykaa App experience', icon: 'sparkles-sharp' }, { m1: 'Help and Support', m2: 'Get help for your account or orders', icon: 'help-circle-outline' }, { m1: 'Addresses', m2: 'Manage your saved Saved address', icon: 'id-card-outline' }, { m1: 'Payment Methods', m2: 'Manage your saved payment methods ', icon: 'browsers-outline' }, { m1: 'MyCoupons', m2: 'Browse coupons to get discount on Nykaa', icon: 'ticket-outline',  }, ]
+    const textData = [{ m1: 'Loyalty Program', m2: 'Shop for ₹2000 to be become a member', icon: 'school-outline' }, { m1: 'Beauty Portflio', m2: 'Personalise your Nykaa App experience', icon: 'sparkles-sharp' }, { m1: 'Help and Support', m2: 'Get help for your account or orders', icon: 'help-circle-outline' }, { m1: 'Addresses', m2: 'Manage your saved Saved address', icon: 'id-card-outline' }, { m1: 'Payment Methods', m2: 'Manage your saved payment methods ', icon: 'browsers-outline' }, { m1: 'MyCoupons', m2: 'Browse coupons to get discount on Nykaa', icon: 'ticket-outline', },]
 
     const [open, setOpen] = useState(false);
 
@@ -25,6 +26,24 @@ const AccountScreen = () => {
     const handleNavigeFunction = (path) => {
         navigation.navigate(path)
     }
+    const [token, setToken] = useState();
+    const [name, setName] = useState();
+    const [email, setEmail] = useState();
+
+    const tokenFun = async () => {
+        try {
+            tokenData = await AsyncStorage.getItem('accessToken')
+            nameVale = await AsyncStorage.getItem('name')
+            emailValue = await AsyncStorage.getItem('email')
+            setToken(tokenData);
+            setName(nameVale);
+            setEmail(emailValue);
+        } catch (e) {
+
+        }
+    }
+    tokenFun();
+
 
     return (
         <ScrollView showsVerticalScrollIndicator={false}>
@@ -33,19 +52,29 @@ const AccountScreen = () => {
                     <View style={styles.innerContainer}>
                         <View>
                             <Text style={styles.textStyle}>Hey</Text>
-                            <Text style={styles.textStyle}>there!</Text>
+                            {token ? (<Text style={styles.textStyle}>{name}</Text>) : (<Text style={styles.textStyle}>there!</Text>)}
                         </View>
                         <View style={styles.imageView}>
                             <Image style={{ width: 100, height: 100 }} source={{ uri: 'https://static.vecteezy.com/system/resources/thumbnails/002/318/271/small_2x/user-profile-icon-free-vector.jpg' }} />
                         </View>
                     </View>
-                    <View style={[styles.innerContainer, { marginTop: 10 }]}>
-                        <View style={[styles.innerContainer, { flex: 1 }]}>
-                            <Text onPress={handleModalFormOpen} style={{ fontSize: 15, fontWeight: 'bold', marginRight: 6, color: '#E80071' }}>Signup or Login </Text>
-                            <AntDesign name="arrowright" size={15} color='#E80071' />
+                    {token ? (
+                        <View style={[styles.innerContainer, { marginTop: 10 }]}>
+                            <View style={[styles.innerContainer, { flex: 2 }]}>
+                                <Text style={{ fontSize: 15, marginRight: 6, color: 'grey' }}>Logged in via </Text>
+                                <Text>{email}</Text>
+                            </View>
+
                         </View>
-                        <View style={{ flex: 2, borderTopWidth: 1, borderTopColor: '#ccc' }}></View>
-                    </View>
+                    ) : (
+                        <View style={[styles.innerContainer, { marginTop: 10 }]}>
+                            <View style={[styles.innerContainer, { flex: 1 }]}>
+                                <Text onPress={handleModalFormOpen} style={{ fontSize: 15, fontWeight: 'bold', marginRight: 6, color: '#E80071' }}>Signup or Login </Text>
+                                <AntDesign name="arrowright" size={15} color='#E80071' />
+                            </View>
+                            <View style={{ flex: 2, borderTopWidth: 1, borderTopColor: '#ccc' }}></View>
+                        </View>
+                    )}
 
                     {dataOfText.map((item, index) => {
                         const isLastItem = index === textData.length - 1;
@@ -73,7 +102,7 @@ const AccountScreen = () => {
                     {textData.map((item, index) => {
                         const isLastItem = index === textData.length - 1;
                         return (
-                            <View  key={index} style={{
+                            <View key={index} style={{
                                 borderBottomWidth: isLastItem ? 0 : 1,
                                 borderBottomColor: isLastItem ? 'transparent' : '#ccc',
                                 marginTop: 20
@@ -122,7 +151,7 @@ const styles = StyleSheet.create({
     },
     textStyle: {
         fontWeight: 'bold',
-        fontSize: 35
+        fontSize: 30
     },
     imageView: {
         marginLeft: 'auto'
