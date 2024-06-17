@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "886082312426",
+    "firebase_url": "https://nykaawebsite-default-rtdb.firebaseio.com",
+    "project_id": "nykaawebsite",
+    "storage_bucket": "nykaawebsite.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:886082312426:android:2a2f05272b708a85439f93",
+        "android_client_info": {
+          "package_name": "com.satyasaimutyala.NykaaMobileApp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "886082312426-84tmh8heu49ag0a5hvsd0fkmol9pf4hg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.satyasaimutyala.NykaaMobileApp",
+            "certificate_hash": "35d2d1b2ed3de8ba97d0374478d6e5deb09dfdba"
+          }
+        },
+        {
+          "client_id": "886082312426-cq4jpiobuiin0vg7brd6j9cuqfajc74h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjlOD4PaYIrVXMltvxiPQF6RVj4FiaSh4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "886082312426-cq4jpiobuiin0vg7brd6j9cuqfajc74h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

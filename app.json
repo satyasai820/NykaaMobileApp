@@ -2,6 +2,7 @@
   "expo": {
     "name": "NykaaMobileApp",
     "slug": "NykaaMobileApp",
+    "plugins": ["@react-native-google-signin/google-signin"],
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/Nykaa Logo.png",
@@ -15,6 +16,7 @@
       "supportsTablet": true
     },
     "android": {
+      "googleServicesFile": "./google-services.json",
       "adaptiveIcon": {
         "foregroundImage": "./assets/Nykaa Logo.png",
         "backgroundColor": "#ffffff"

@@ -48,7 +48,17 @@ const BottomNavigationTabs = () => {
                 <TabsScreen.Screen name="Categories" component={CategoriesScreen} options={{
                     tabBarIcon: ({ color, size }) => (
                         <MaterialIcons name="category" color={color} size={size} />
-                    )
+                    ),
+                    headerLeft: () => (
+                        <>
+                            <View style={styles.container}>
+                                    <Image source={require('../assets/nykaa-1.png')} style={{ width: 90, height: 20 }} />
+                                
+                            </View>
+                        </>
+                    ),
+                    headerTitle:() => null,
+                    headerRight :  () => <HeaderRightComponentView display='none'/>
                 }} />
                 <TabsScreen.Screen name="Play" component={PlayScreen} options={{
                     tabBarIcon: ({ color, size }) => (
