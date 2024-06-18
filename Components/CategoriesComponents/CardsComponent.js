@@ -1,9 +1,9 @@
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { Ionicons, EvilIcons } from '@expo/vector-icons';
-import CardSwiperComponent from "../HomeComponents/CardSwiperComponent";
+import { useNavigation } from "@react-navigation/native";
 
 const CardsComponent = ({ data }) => {
-
+    const navigation = useNavigation();
     const tags = [{ n: 'Luxe', icon: 'diamond-outline' }, { n: 'On Offer', icon: 'medical-outline' }, { n: 'Top Rated', icon: 'star-outline' }, { n: 'New', icon: 'pricetag-outline' },]
     return (
         <>
@@ -20,9 +20,9 @@ const CardsComponent = ({ data }) => {
                         </View>
                     ))}
                 </View>
-                <View style={{flex:1,flexDirection:'row', flexWrap:'wrap', width:'100%'}}>
-                    {data.map((item) => (
-                        <View style={styles.innerContainer}>
+                <View style={{ flex: 1, flexDirection: 'row', flexWrap: 'wrap', width: '100%' }}>
+                    {data.map((item, index) => (
+                        <TouchableOpacity style={styles.innerContainer} key={index} onPress={() => navigation.navigate('innerProducts')}>
                             <View>
                                 <Image source={{ uri: item.img }} style={styles.cardsImage} />
                             </View>
@@ -31,20 +31,23 @@ const CardsComponent = ({ data }) => {
                                 <Text style={styles.subtitle}>Vitamin C Superglow Skin Perfecting Primer with 1% Vit C</Text>
                                 <Text style={styles.subtitle}>300ml</Text>
                                 <Text><Text>₹422 </Text><Text style={{ fontSize: 13, color: 'grey', textDecorationLine: 'line-through' }}>₹549</Text><Text style={{ fontSize: 13, color: 'green' }}> 23%</Text></Text>
-                            </View>
-                            <View style={styles.buttonView}>
-                                <View>
+                                <View style={{flexDirection:'row'}}>
+                                    <Ionicons name="star" />
+                                    <Ionicons name="star" />
+                                    <Ionicons name="star" />
+                                    <Ionicons name="star" />
+                                    <Ionicons name="star-outline" />
                                 </View>
+                            </View>
                                 <View style={styles.buttonView}>
                                     <View style={styles.textOne}>
                                         <EvilIcons style={{ padding: 5, color: '#E80071' }} size={20} name="heart" />
                                     </View>
-                                    <View>
-                                        <Text style={styles.textTwo}>Add To Buy</Text>
+                                    <View style={styles.textTwo}>
+                                        <Text style={styles.buttonText}>Add To Buy</Text>
                                     </View>
                                 </View>
-                            </View>
-                        </View>
+                        </TouchableOpacity>
 
                     ))}
                 </View>
@@ -76,12 +79,12 @@ const styles = StyleSheet.create({
         fontSize: 13,
         color: 'grey',
         // width:200,
-        flexWrap:'wrap'
+        flexWrap: 'wrap'
     },
-    cardsView : {
-        flex:1,
-        flexDirection:'row',
-        flexWrap:'wrap'
+    cardsView: {
+        flex: 1,
+        flexDirection: 'row',
+        flexWrap: 'wrap'
     },
     text: {
         borderWidth: 1,
@@ -99,7 +102,7 @@ const styles = StyleSheet.create({
     },
     innerContainer: {
         margin: 9,
-        width:'45%',
+        width: '45%',
     },
     title: {
         fontSize: 15,
@@ -111,16 +114,18 @@ const styles = StyleSheet.create({
     buttonView: {
         flexDirection: 'row',
         marginVertical: 5,
-        alignItems: 'center',
+        alignItems: 'center', 
     },
     textOne: {
         fontSize: 15,
         borderColor: '#E80071',
         borderWidth: 1,
         borderRadius: 10,
+        width:'20%',
+        justifyContent:'center',
+        alignItems:'center'
     },
     textTwo: {
-        fontWeight: 'bold',
         marginLeft: 5,
         borderColor: '#E80071',
         borderWidth: 1,
@@ -128,6 +133,12 @@ const styles = StyleSheet.create({
         paddingHorizontal: 15,
         borderRadius: 10,
         backgroundColor: '#E80071',
-        color: 'white'
+        width:'75%',
+    },
+    buttonText : {
+        color: 'white',
+        fontWeight: 'bold',
+        textAlign:'center'
+
     }
 })

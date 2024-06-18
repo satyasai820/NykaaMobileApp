@@ -13,6 +13,7 @@ import InnerCategoriesComponent from '../Components/CategoriesComponents/InnerCa
 import HeaderRightComponentView from '../Components/HeaderRightComponentView';
 import MakeUpComponent from '../Components/CategoriesComponents/MakeUpComponent';
 import ProductComponent from '../Components/CategoriesComponents/ProductScreen';
+import AllInnerProductComponents from '../Components/InnerProductScreenComponents/AllInnerProductComponents';
 
 const Stack = createNativeStackNavigator();
 const StackNavigation = () => {
@@ -69,6 +70,7 @@ const StackNavigation = () => {
                         ),
                         
                     }}/>
+                    <Stack.Screen name='innerProducts' component={AllInnerProductComponents} />
                 </Stack.Navigator>
             </NavigationContainer>
 
