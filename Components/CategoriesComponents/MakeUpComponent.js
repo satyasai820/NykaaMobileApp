@@ -41,13 +41,13 @@ const MakeUpComponent = () => {
                 <View>
                     {showDropdown ? (
                         <>
-                            <TouchableOpacity style={{ marginVertical: 12 }} onPress={() => navigation.navigate('Product')}>
+                            <TouchableOpacity style={{ marginVertical: 12 }} onPress={() => navigation.navigate('Product',{id : 'faceprimer'})}>
                                 <Text style={{ fontSize: 16, color:'orange' }}>Face Primer</Text>
                             </TouchableOpacity>
-                            <TouchableOpacity style={{ marginVertical: 12 }}>
+                            <TouchableOpacity style={{ marginVertical: 12 }} onPress={() => navigation.navigate('Product',{id : 'concealer'})}>
                                 <Text style={{ fontSize: 16, color:'orange' }}>Concealer</Text>
                             </TouchableOpacity>
-                            <TouchableOpacity style={{ marginVertical: 12 }}>
+                            <TouchableOpacity style={{ marginVertical: 12 }} onPress={() => navigation.navigate('Product',{id : 'foundation'})}>
                                 <Text style={{ fontSize: 16, color:'orange' }}>Foundation</Text>
                             </TouchableOpacity>
                             {faceData.map((item, index) => (

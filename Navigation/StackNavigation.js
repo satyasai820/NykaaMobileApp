@@ -70,7 +70,22 @@ const StackNavigation = () => {
                         ),
                         
                     }}/>
-                    <Stack.Screen name='innerProducts' component={AllInnerProductComponents} />
+                    <Stack.Screen name='innerProducts' component={AllInnerProductComponents} options={{
+                        headerTitle : () => '',
+                            headerRight: () => (
+                                <View style={styles.container}>
+                                <View>
+                                    <Ionicons style={[styles.innerContainer]} name="search-outline" size={25} />
+                                </View>
+                                <View>
+                                    <Ionicons style={styles.innerContainer} name="heart-outline" size={25}/>
+                                </View>
+                                <View>
+                                    <Ionicons style={styles.innerContainer} name="bag-outline" size={25} />
+                                </View>
+                            </View>
+                            ),
+                    }} />
                 </Stack.Navigator>
             </NavigationContainer>
 

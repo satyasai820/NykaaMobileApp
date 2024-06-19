@@ -1,10 +1,27 @@
-import { View, Image, StyleSheet, Text } from "react-native"
+import { View, Image, StyleSheet, Text, Alert } from "react-native"
 import Swiper from "react-native-swiper";
 import { Ionicons, AntDesign } from '@expo/vector-icons';
+import { useState } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const FirstSwiperComponent = () => {
-
     const cardsdata = [{ img: 'https://images-static.nykaa.com/media/catalog/product/0/a/0ad53ee29837_N-8901030701917.jpg' }, { img: 'https://images-static.nykaa.com/media/catalog/product/0/a/0ad53ee29837_S1-8901030701917.jpg' }, { img: 'https://images-static.nykaa.com/media/catalog/product/0/a/0ad53ee29837_S2-8901030701917.jpg' }, { img: 'https://images-static.nykaa.com/media/catalog/product/0/a/0ad53ee29837_S3-8901030701917.jpg' }, { img: 'https://images-static.nykaa.com/media/catalog/product/0/a/0ad53ee29837_S4-8901030701917.jpg' }]
+
+    const [cardImages, setCardImages] = useState();
+
+    const getData = async () => {
+        try {
+           const imagesData = await AsyncStorage.getItem('innerImages')
+           setCardImages(imagesData)
+        } catch (e) {
+            console.log(e);
+        }
+    }
+    getData();
+
+    console.log('getting data ---->',cardImages);
+
+    
 
     return (
         <>

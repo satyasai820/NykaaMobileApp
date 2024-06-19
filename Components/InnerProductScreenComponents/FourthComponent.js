@@ -1,6 +1,9 @@
 import { StyleSheet, View, Text } from "react-native";
+import CardSwiperComponent from "../HomeComponents/CardSwiperComponent";
+import HomeHotListCardSwiperComponent from "../HomeComponents/HomeHotListCardSwiperComponent";
 
 const FourthComponent = () => {
+    const cardsData = [{img:''}]
     return(
         <>
         <View style={{backgroundColor:'#FFFFFF'}}>
@@ -12,6 +15,7 @@ const FourthComponent = () => {
                     <Text style={styles.sideText}>View All</Text>
                 </View>
             </View>
+            <HomeHotListCardSwiperComponent display='none' />
         </View>
         </>
     )

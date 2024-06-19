@@ -1,15 +1,25 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { Ionicons, EvilIcons } from '@expo/vector-icons';
 import { useNavigation } from "@react-navigation/native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const CardsComponent = ({ data }) => {
+const CardsComponent = ({ data, title }) => {
     const navigation = useNavigation();
     const tags = [{ n: 'Luxe', icon: 'diamond-outline' }, { n: 'On Offer', icon: 'medical-outline' }, { n: 'Top Rated', icon: 'star-outline' }, { n: 'New', icon: 'pricetag-outline' },]
+
+    const handleInnerImages = async (innerData) => {
+        // console.log('this is inner images of --->', innerData)
+        const productImgs = JSON.stringify(innerData);
+       await AsyncStorage.setItem('innerImages', productImgs);
+       navigation.navigate('innerProducts');
+
+    }
+
     return (
         <>
             <View style={styles.container}>
                 <View>
-                    <Text style={styles.title}>Face Primer</Text>
+                    <Text style={styles.title}>{title}</Text>
                     <Text style={{ marginTop: 10, color: 'grey' }}>453 products</Text>
                 </View>
                 <View style={styles.secondContainer}>
@@ -22,7 +32,7 @@ const CardsComponent = ({ data }) => {
                 </View>
                 <View style={{ flex: 1, flexDirection: 'row', flexWrap: 'wrap', width: '100%' }}>
                     {data.map((item, index) => (
-                        <TouchableOpacity style={styles.innerContainer} key={index} onPress={() => navigation.navigate('innerProducts')}>
+                        <TouchableOpacity style={styles.innerContainer} key={index} onPress={() => handleInnerImages(item.innerImgs)}>
                             <View>
                                 <Image source={{ uri: item.img }} style={styles.cardsImage} />
                             </View>

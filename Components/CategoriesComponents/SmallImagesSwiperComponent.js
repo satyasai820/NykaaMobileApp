@@ -7,7 +7,7 @@ const SmallImagesSwiperComponents = ({dataOne , dataTwo}) => {
                 <Text style={{fontSize:16, fontWeight:'bold'}}>Shop By Skin Type</Text>
                 <FlatList data={dataOne} horizontal={true} showsHorizontalScrollIndicator={false} renderItem={({item}) => (
                     <View>
-                        <Image style={{width:100, height:80, margin:5, borderRadius:10}} source={{uri:item.img}} />
+                        <Image style={{width:100, height:80, margin:5, borderRadius:10}} source={{uri:item.img2}} />
                     </View>
                 )} kkeyExtractor={(item, index) => index.toString()} />
             </View>
