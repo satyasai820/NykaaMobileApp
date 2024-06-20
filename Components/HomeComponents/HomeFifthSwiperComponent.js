@@ -39,7 +39,8 @@ const styles = StyleSheet.create({
     images : {
         width:400,
         height:400,
-        margin:5,
+        marginVertical:5,
+        marginRight:5,
         borderRadius:10
     },
     

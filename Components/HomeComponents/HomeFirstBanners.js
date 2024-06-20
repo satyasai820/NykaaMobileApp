@@ -1,6 +1,8 @@
-import { StyleSheet, View, Text, Image } from "react-native";
+import { StyleSheet, View, Text, Image, Dimensions } from "react-native";
 
 const HomeFirstBanner = () => {
+
+
     return(
         <>
         <View style={styles.container}>
@@ -12,12 +14,16 @@ const HomeFirstBanner = () => {
 
 export default HomeFirstBanner;
 
+const screenWidth = Dimensions.get('window').width
+
 const styles = StyleSheet.create({
     container :{
         margin:10
     },
    imageStyle :{
-     maxWidth:450,
-     height:200,
+    //  maxWidth:450,
+    //  height:200,
+    width : screenWidth < 400 ? 340 : 405,
+    height: screenWidth < 400 ? 170 : 200
    }
 })

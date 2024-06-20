@@ -10,9 +10,9 @@ import HomeThirdSwiperComponent from "../Components/HomeComponents/HomeThirdSwip
 import HomeFourthSwiperComponent from "../Components/HomeComponents/HomeFourthSwiperComponent";
 import HomeFifthSwiperComponent from "../Components/HomeComponents/HomeFifthSwiperComponent";
 import HomeSixthSwiperComponent from "../Components/HomeComponents/HomeSixthSwiperComponent";
+import HomeOnRadarComponent from "../Components/HomeComponents/HomeOnRadarComponent";
 import HomeSeventhSwiperComponent from "../Components/HomeComponents/HomeSeventhSwiperComponent";
 import HomeSwiperEightComponent from "../Components/HomeComponents/HomeSwiperEightComponent";
-import HomeOnRadarComponent from "../Components/HomeComponents/HomeOnRadarComponent";
 import HomeDiscoverSwiperComponent from "../Components/HomeComponents/HomeDiscoverSwiperComponent";
 import HomeStellerSwiperComponent from "../Components/HomeComponents/HomeStellerSwiperComponent";
 import HomeHotListCardSwiperComponent from "../Components/HomeComponents/HomeHotListCardSwiperComponent";
@@ -38,7 +38,7 @@ const BeautyScreen = () => {
                 <HomeFifthSwiperComponent />
                 <HomeSixthSwiperComponent />
                 <HomeOnRadarComponent />
-                <HomeDiscoverSwiperComponent />
+                {/* <HomeDiscoverSwiperComponent />
                 <HomeStellerSwiperComponent />
                 <HomeHotListCardSwiperComponent />
                 <HomeStayThankYouSwiperComponent />
@@ -48,7 +48,7 @@ const BeautyScreen = () => {
                 <HomeReadyToSwiperComponent />
                 <HomeBeautyGuideSwiperComponent />
                 <HomeGetGiftingBannerComponent />
-                <HomeWatchAndShopSwiperComponent />
+                <HomeWatchAndShopSwiperComponent /> */}
                 <HomeLingerieAndSccessoriesSwiperComponet />
                 <HomeLastSwiperComponentSwiper />
                 <HomePolicyComponent />

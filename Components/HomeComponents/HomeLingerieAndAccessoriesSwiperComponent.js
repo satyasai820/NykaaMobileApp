@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     swiperImages :{
         width:300,
         height:200,
-        margin:5,
+        marginRight:5,
         borderRadius:10
     }
 })
