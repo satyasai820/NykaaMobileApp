@@ -141,7 +141,7 @@ const ModalFormComponent = ({ handleCloseModal }) => {
     });
 
     const handleGoogleAccount = async () => {
-        // console.log("google code is commented");
+        console.log("google code is commented");
         try {
             const { idToken } = await GoogleSignin.signIn();
             const googleCredential = auth.GoogleAuthProvider.credential(idToken);

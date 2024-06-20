@@ -1,6 +1,7 @@
+import React,{ memo } from "react";
 import { View, StyleSheet, Text, Image } from "react-native";
 
-const HomeFourthSwiperComponent = () => {
+const HomeFourthSwiperComponent = memo(() => {
     const SwiperData = [{img:'https://images-static.nykaa.com/creatives/9b913ad6-f364-4d5f-a8c1-c3b19a97b603/default.jpg?tr=cm-pad_resize,w-900', m1:'Min 25% Off', m2:'Get a Moisturizer on699+'}, {img:'https://images-static.nykaa.com/creatives/984aeeaf-37ee-427f-b2db-34c19d514aec/default.jpg?tr=cm-pad_resize,w-900', m1:'Min 25% Off', m2:'Get a Moisturizer on699+'},{img:'https://images-static.nykaa.com/creatives/0533587f-03f5-444e-ae80-133f525a4a2a/default.png?tr=cm-pad_resize,w-900', m1:'Min 25% Off', m2:'Get a Moisturizer on699+'},{img:'https://images-static.nykaa.com/creatives/fb16b7d8-0c03-4af7-b307-d24d74ffd39e/default.jpg?tr=cm-pad_resize,w-900', m1:'Min 25% Off', m2:'Get a Moisturizer on699+'},{img:'https://images-static.nykaa.com/creatives/dccc0cea-c0db-461f-9f80-a3ebb69ad0c9/default.jpg?tr=cm-pad_resize,w-900', m1:'Min 25% Off', m2:'Get a Moisturizer on699+'},{img:'https://images-static.nykaa.com/creatives/cdc3fc32-7e24-4e95-9bb0-f12f9d1d5915/default.jpg?tr=cm-pad_resize,w-900', m1:'Min 25% Off', m2:'Get a Moisturizer on699+'}, ]
     return(
         <>
@@ -21,7 +22,7 @@ const HomeFourthSwiperComponent = () => {
         </View>
         </>
     )
-}
+});
 
 export default HomeFourthSwiperComponent;
 

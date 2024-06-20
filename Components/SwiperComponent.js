@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import { View, FlatList, Image } from "react-native";
 
-const SwiperFlatListComponent = ({ data, styled }) => {
+const SwiperFlatListComponent = memo(({ data, styled }) => {
   const renderItem = ({ item }) => (
     <View>
       <Image source={{ uri: item.img }} style={styled} />
@@ -19,8 +19,10 @@ const SwiperFlatListComponent = ({ data, styled }) => {
       />
     </View>
   );
-};
+});
 
 
 
 export default memo(SwiperFlatListComponent);
+
+

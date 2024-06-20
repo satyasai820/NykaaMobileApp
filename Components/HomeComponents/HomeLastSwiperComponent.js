@@ -1,5 +1,5 @@
 import { FlatList, StyleSheet, View, Image, Text } from "react-native";
-import SwiperFlatListComponent from "../SwiperComponent";
+import SwiperFlatListComponentTwo from "../SwiperComponentTwo";
 
 const HomeLastSwiperComponentSwiper = () => {
 
@@ -11,7 +11,7 @@ const HomeLastSwiperComponentSwiper = () => {
         <>
             <View style={styles.container}>
                 <View>
-                    <SwiperFlatListComponent data={SmallImagesData} styled={styles.smallImages} />
+                    <SwiperFlatListComponentTwo data={SmallImagesData} styled={styles.smallImages} />
                 </View>
                 <View>
                     <FlatList horizontal={true} showsHorizontalScrollIndicator={false} data={SwiperData} renderItem={({ item }) => (
