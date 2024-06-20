@@ -1,27 +1,32 @@
 import { View, Image, StyleSheet, Text, Alert } from "react-native"
 import Swiper from "react-native-swiper";
 import { Ionicons, AntDesign } from '@expo/vector-icons';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const FirstSwiperComponent = () => {
-    const cardsdata = [{ img: 'https://images-static.nykaa.com/media/catalog/product/0/a/0ad53ee29837_N-8901030701917.jpg' }, { img: 'https://images-static.nykaa.com/media/catalog/product/0/a/0ad53ee29837_S1-8901030701917.jpg' }, { img: 'https://images-static.nykaa.com/media/catalog/product/0/a/0ad53ee29837_S2-8901030701917.jpg' }, { img: 'https://images-static.nykaa.com/media/catalog/product/0/a/0ad53ee29837_S3-8901030701917.jpg' }, { img: 'https://images-static.nykaa.com/media/catalog/product/0/a/0ad53ee29837_S4-8901030701917.jpg' }]
 
-    const [cardImages, setCardImages] = useState();
+    const [cardImages, setCardImages] = useState([]);
 
-    const getData = async () => {
-        try {
-           const imagesData = await AsyncStorage.getItem('innerImages')
-           setCardImages(imagesData)
-        } catch (e) {
-            console.log(e);
-        }
-    }
-    getData();
+    useEffect(() => {
+        const getData = async () => {
+            try {
+                const imagesData = await AsyncStorage.getItem('innerImages');
+                if (imagesData) {
+                    const parsedImages = JSON.parse(imagesData);
+                    setCardImages(parsedImages);
 
-    console.log('getting data ---->',cardImages);
+                }
+            } catch (e) {
+                console.log(e);
+            }
+        };
+        getData();
+    }, []);
 
-    
+    console.log('getting data ---->', cardImages);
+
+
 
     return (
         <>
@@ -35,8 +40,8 @@ const FirstSwiperComponent = () => {
                         activeDot={<View style={styles.ActiveDotStyle} />}
                         paginationStyle={styles.pagination}
                     >
-                        {cardsdata.map((item, index) => (
-                            <View key={index} style={{ marginHorizontal: 'auto' }}>
+                        {cardImages && cardImages.map((item, index) => (
+                            <View key={index} style={{ justifyContent: 'center', alignItems: 'center' }}>
                                 <Image style={{ width: 300, height: 300 }} source={{ uri: item.img }} />
                             </View>
                         ))}
@@ -74,7 +79,7 @@ const FirstSwiperComponent = () => {
                 </View>
             </View>
             <View style={{ marginVertical: 20, backgroundColor: '#ffffff', flexDirection: 'row', alignItems: 'center' }}>
-                <View style={{ width: '50%', paddingVertical: 15, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', borderRightColor:'#ccc', borderRightWidth:1 }}>
+                <View style={{ width: '50%', paddingVertical: 15, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', borderRightColor: '#ccc', borderRightWidth: 1 }}>
                     <Ionicons size={13} name="checkmark" style={{ backgroundColor: '#E80071', padding: 5, color: '#FFFFFF', borderRadius: 20, marginRight: 5 }} />
                     <Text style={{ fontSize: 12, }}>100% Authentic</Text>
                 </View>

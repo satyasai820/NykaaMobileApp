@@ -1,5 +1,5 @@
 import { StyleSheet, View } from "react-native";
-import SwiperFlatListComponent from "../SwiperComponent";
+import SwiperFlatListComponentTwo from "../SwiperComponentTwo";
 
 const HomeDiscoverSwiperComponent = () => {
 
@@ -8,7 +8,7 @@ const HomeDiscoverSwiperComponent = () => {
     return(
         <>
         <View style={styles.container} >
-            <SwiperFlatListComponent data={SwiperData} styled={styles.swiperImage}  />
+            <SwiperFlatListComponentTwo data={SwiperData} styled={styles.swiperImage}  />
         </View>
         </>
     )

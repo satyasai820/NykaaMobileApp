@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from "react-native";
-import SwiperFlatListComponent from "../SwiperComponent";
+import SwiperFlatListComponentTwo from "../SwiperComponentTwo";
 
 const HomeGetGiftingBannerComponent = () => {
     const bannerData = [{img:'https://images-static.nykaa.com/uploads/a92dac26-400d-4158-af51-a7d247658835.jpg?tr=cm-pad_resize,w-600'},{img:'https://images-static.nykaa.com/uploads/97a082e3-76ba-4671-8a10-97c867ff5b2f.jpg?tr=cm-pad_resize,w-600'}]
@@ -12,7 +12,7 @@ const HomeGetGiftingBannerComponent = () => {
                         <Text style={styles.textTwo}>Pamper, Delight & Spoil Your Loved Ones</Text>
                     </View>
                     <View>
-                        <SwiperFlatListComponent data={bannerData} styled={styles.swiperImages} />
+                        <SwiperFlatListComponentTwo data={bannerData} styled={styles.swiperImages} />
                     </View>
                 </View>
             </View>

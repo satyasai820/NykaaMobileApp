@@ -3,7 +3,7 @@ import { Modal, View, Text, StyleSheet, Image, TextInput, KeyboardAvoidingView, 
 import { Ionicons } from '@expo/vector-icons';
 import { firebase } from '../firebase'
 import AsyncStorage from '@react-native-async-storage/async-storage';
-// import { GoogleSignin } from '@react-native-google-signin/google-signin';
+import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import { useNavigation } from '@react-navigation/native';
 import auth from '@react-native-firebase/auth';
 
@@ -135,29 +135,29 @@ const ModalFormComponent = ({ handleCloseModal }) => {
 
       //Google Authentication
 
-    //   GoogleSignin.configure({
-    //     webClientId: '886082312426-cq4jpiobuiin0vg7brd6j9cuqfajc74h.apps.googleusercontent.com',
+      GoogleSignin.configure({
+        webClientId: '886082312426-cq4jpiobuiin0vg7brd6j9cuqfajc74h.apps.googleusercontent.com',
         
-    // });
+    });
 
     const handleGoogleAccount = async () => {
-        console.log("google code is commented");
-        // try {
-        //     const { idToken } = await GoogleSignin.signIn();
-        //     const googleCredential = auth.GoogleAuthProvider.credential(idToken);
-        //     const userCredential = await auth().signInWithCredential(googleCredential);
-        //     const user = userCredential.user
-        //     // here getting token
-        //     const token = await user.getIdToken();
-        //     // here storing details into asyncStorage
-        //     await AsyncStorage.setItem('email', user.email);
-        //     await AsyncStorage.setItem('name', user.displayName);
-        //     await AsyncStorage.setItem('accessToken', token);
-        //     handleCloseModal();
+        // console.log("google code is commented");
+        try {
+            const { idToken } = await GoogleSignin.signIn();
+            const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+            const userCredential = await auth().signInWithCredential(googleCredential);
+            const user = userCredential.user
+            // here getting token
+            const token = await user.getIdToken();
+            // here storing details into asyncStorage
+            await AsyncStorage.setItem('email', user.email);
+            await AsyncStorage.setItem('name', user.displayName);
+            await AsyncStorage.setItem('accessToken', token);
+            handleCloseModal();
 
-        // } catch (error) {
-        //     console.error('Error during Google sign-in:', error);
-        // }
+        } catch (error) {
+            console.error('Error during Google sign-in:', error);
+        }
     };
 
   
