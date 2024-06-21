@@ -18,12 +18,13 @@ const screenWidth = Dimensions.get('window').width
 
 const styles = StyleSheet.create({
     container :{
-        margin:10
+        margin:10,
+        width:'100%',
     },
    imageStyle :{
     //  maxWidth:450,
     //  height:200,
-    width : screenWidth < 400 ? 340 :  screenWidth <= 420 ? 392 : 405,
-    height: screenWidth < 400 ? 170 : 200
+    width : screenWidth < 380 ? 340 :  screenWidth <= 410 ? 375 : screenWidth <= 420 ? 392 : 405,
+    height: screenWidth < 380 ? 170 : screenWidth <= 410 ? 190 : screenWidth <= 420 ? 190 : 200
    }
 })

@@ -41,6 +41,7 @@ const BottomNavigationTabs = () => {
 
                 }} />
                 <TabsScreen.Screen name="Offers" component={OfferScreen} options={{
+                    headerTitleAlign:"center",
                     tabBarIcon: ({ color, size }) => (
                         <Fontisto name="shopping-sale" color={color} size={size} />
                     )
@@ -61,6 +62,7 @@ const BottomNavigationTabs = () => {
                     headerRight :  () => <HeaderRightComponentView display='none'/>
                 }} />
                 <TabsScreen.Screen name="Play" component={PlayScreen} options={{
+                    headerTitleAlign:'center',
                     tabBarIcon: ({ color, size }) => (
                         <Feather name="play" color={color} size={size} />
                     )

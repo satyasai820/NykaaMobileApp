@@ -101,12 +101,13 @@ const styles = StyleSheet.create({
     text: {
         borderWidth: 1,
         borderColor: '#ccc',
-        paddingHorizontal: screenWidth < 420 ? 6 : 10,
+        paddingHorizontal: screenWidth < 410 ? 6 : 10,
         paddingVertical: 5,
         borderRadius: 10,
         marginHorizontal: 5,
         flexDirection: 'row',
-        alignItems: 'center'
+        alignItems: 'center',
+        
     },
     cardsImage: {
         width: '100%',
@@ -114,7 +115,7 @@ const styles = StyleSheet.create({
     },
     innerContainer: {
         margin: screenWidth < 380 ? 6 : 9,
-        width: '45%',
+        width: '44%',
     },
     title: {
         fontSize: 15,

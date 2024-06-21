@@ -58,14 +58,14 @@ const styles = StyleSheet.create({
 
     textContainer :{
         position:'absolute',
-        top: screenWidth < 410 ? 175 : 210,
+        top: screenWidth < 380 ? 175 : 210,
         marginLeft:15,
         fontSize:20,
         fontWeight:'bold'
     },
     textContainerTwo :{
         position:'absolute',
-        top:screenWidth < 410 ? 195 : 230,
+        top:screenWidth < 380 ? 195 : 230,
         marginLeft:15,
         fontSize:16,
     }

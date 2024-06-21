@@ -14,7 +14,7 @@ const HomeStellerSwiperComponent = memo(() => {
                 </View>
                 <View style={styles.innerView}>
                     {cardsData.map((item, index) => (
-                        <View style={{ margin: 5 }} key={index}>
+                        <View style={{ margin: 5, width:'47%' }} key={index}>
                             <View>
                                 <Image source={{ uri: item.img }} style={styles.imageStyle} />
                                 <Text style={styles.innerTextOne}>Flat Rs 399</Text>

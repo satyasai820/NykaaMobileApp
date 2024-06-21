@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
         margin: 5
     },
     buttonImages: {
-        width: screenWidth < 380 ? 340 : screenWidth <= 420 ? 390  : 410,
+        // width: screenWidth < 380 ? 340 : screenWidth <= 420 ? 390 : 410,
         height: screenWidth < 380 ? 70 : 80
     }
 })

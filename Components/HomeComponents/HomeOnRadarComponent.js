@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
         justifyContent:'center'
     },
     imageStyle: {
-        width: screenWidth < 380 ? 150 : screenWidth <= 420 ? 180 : 190,
+        width: screenWidth < 380 ? 150 : screenWidth <= 420 ? 170 : 190,
         height: screenWidth < 380 ? 220 : 270,
         borderRadius: 10
     },

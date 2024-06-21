@@ -29,7 +29,7 @@ const ProductComponent = () => {
     const smallImages = [{ img: 'https://images-static.nykaa.com/uploads/724e8061-3ca8-4065-b8f4-a39c4b266683.png?tr=cm-pad_resize,w-150' }, { img: 'https://images-static.nykaa.com/uploads/4f65cd27-0d5b-41b4-8a21-0fed25c49c5a.png?tr=cm-pad_resize,w-150' }, { img: 'https://images-static.nykaa.com/uploads/5bfb0f5a-3fa1-4a4b-83a4-398b368a82ba.png?tr=cm-pad_resize,w-150' }, { img: 'https://images-static.nykaa.com/uploads/3b224757-e82b-4271-8b62-46f829fb27ab.png?tr=cm-pad_resize,w-150' }, { img: 'https://images-static.nykaa.com/uploads/b7ebf552-cc12-4a54-a8db-fadae489bcb7.png?tr=cm-pad_resize,w-150' }]
 
     return (
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}>
             <View style={{ flex: 1, backgroundColor: '#FFFFFF' }}>
                 <View style={{ height: 80, }}>
                     <Swiper
