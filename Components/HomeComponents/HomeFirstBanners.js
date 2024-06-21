@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
    imageStyle :{
     //  maxWidth:450,
     //  height:200,
-    width : screenWidth < 400 ? 340 : 405,
+    width : screenWidth < 400 ? 340 :  screenWidth <= 420 ? 392 : 405,
     height: screenWidth < 400 ? 170 : 200
    }
 })

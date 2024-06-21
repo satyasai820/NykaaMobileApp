@@ -43,8 +43,11 @@ const styles = StyleSheet.create({
         marginBottom:10
     },
     imageStyle :{
-        width:400,
-        height:250,
+        // width: screenWidth < 410 ? 340 : 400,
+        width: screenWidth < 380 ? 340 : screenWidth <= 420 ? 380 : 400,
+        // maxWidth:'90%',
+        // height:250,
+        height: screenWidth < 380 ? 210 : 250,
         marginVertical:10,
         borderRadius:10
     },
@@ -55,14 +58,14 @@ const styles = StyleSheet.create({
 
     textContainer :{
         position:'absolute',
-        top:210,
+        top: screenWidth < 410 ? 175 : 210,
         marginLeft:15,
         fontSize:20,
         fontWeight:'bold'
     },
     textContainerTwo :{
         position:'absolute',
-        top:230,
+        top:screenWidth < 410 ? 195 : 230,
         marginLeft:15,
         fontSize:16,
     }

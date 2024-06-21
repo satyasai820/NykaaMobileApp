@@ -1,4 +1,4 @@
-import { Image, StyleSheet, View } from "react-native";
+import { Dimensions, Image, StyleSheet, View } from "react-native";
 
 const HomePolicyComponent = () => {
     return(
@@ -17,6 +17,8 @@ const HomePolicyComponent = () => {
 
 export default HomePolicyComponent;
 
+const screenWidth = Dimensions.get('window').width
+
 const styles = StyleSheet.create({
     container : {
         padding:10,
@@ -24,12 +26,12 @@ const styles = StyleSheet.create({
         alignItems:'center'
     }, 
     imageStyle : {
-        width:390,
-        height:145
+        width: screenWidth < 380 ? 320 : screenWidth <= 420 ? 360 : 390,
+        height: screenWidth < 380 ? 120 : screenWidth <= 420 ? 135 : 145
     },
     textImage : {
-        width:386,
-        height:63,
+        width: screenWidth < 380 ? 320 : screenWidth <= 420 ? 380 : 386,
+        height: screenWidth < 380 ? 52 : screenWidth <= 420 ? 60 : 63,
         marginVertical:15
     }
 }) 

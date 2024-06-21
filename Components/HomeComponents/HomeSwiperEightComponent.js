@@ -1,4 +1,4 @@
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet, Text, Dimensions } from "react-native";
 import { AntDesign } from '@expo/vector-icons';
 
 import CardSwiperComponent from "./CardSwiperComponent";
@@ -38,6 +38,8 @@ const HomeSwiperEightComponent = () => {
 }
 
 export default HomeSwiperEightComponent;
+
+const screenWidth = Dimensions.get('window').width;
 
 const styles = StyleSheet.create({
     Container: {

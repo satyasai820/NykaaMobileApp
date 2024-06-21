@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { StyleSheet, View, Text, Image } from "react-native";
+import { StyleSheet, View, Text, Image, Dimensions } from "react-native";
 
 const HomeStellerSwiperComponent = memo(() => {
 
@@ -30,6 +30,8 @@ const HomeStellerSwiperComponent = memo(() => {
 
 export default HomeStellerSwiperComponent;
 
+const screenWidth = Dimensions.get('window').width;
+
 const styles = StyleSheet.create({
     container: {
         padding: 10,
@@ -51,8 +53,8 @@ const styles = StyleSheet.create({
         justifyContent:'center'
     },
     imageStyle: {
-        width: 190,
-        height: 270,
+        width: screenWidth < 380 ? 160 : screenWidth <= 420 ? 180 : 190,
+        height: screenWidth < 380 ? 220 : screenWidth <= 420 ? 260 : 270,
         borderRadius: 10
     },
     innerTextOne: {

@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity, KeyboardAvoidingView } from "react-native";
+import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity, KeyboardAvoidingView, Dimensions } from "react-native";
 import { AntDesign, Ionicons } from '@expo/vector-icons';
 import AccountComponents from "../Components/AccountComponents";
 import AccountFooterComponent from "../Components/AccountFooterComponent";
@@ -69,10 +69,10 @@ const AccountScreen = () => {
                     ) : (
                         <View style={[styles.innerContainer, { marginTop: 10 }]}>
                             <View style={[styles.innerContainer, { flex: 1 }]}>
-                                <Text onPress={handleModalFormOpen} style={{ fontSize: 15, fontWeight: 'bold', marginRight: 6, color: '#E80071' }}>Signup or Login </Text>
+                                <Text onPress={handleModalFormOpen} style={styles.signInWithText}>Signup or Login </Text>
                                 <AntDesign name="arrowright" size={15} color='#E80071' />
                             </View>
-                            <View style={{ flex: 2, borderTopWidth: 1, borderTopColor: '#ccc' }}></View>
+                            {/* <View style={{ flex: 2, borderTopWidth: 1, borderTopColor: '#ccc' }}></View> */}
                         </View>
                     )}
 
@@ -136,6 +136,8 @@ const AccountScreen = () => {
 
 export default AccountScreen;
 
+const screenWidth = Dimensions.get('window').width
+
 const styles = StyleSheet.create({
     mainContainer: {
         flex: 1,
@@ -151,9 +153,12 @@ const styles = StyleSheet.create({
     },
     textStyle: {
         fontWeight: 'bold',
-        fontSize: 30
+        fontSize: screenWidth < 380 ? 25 : screenWidth <= 420 ? 25 : 30
     },
     imageView: {
         marginLeft: 'auto'
     },
+    signInWithText : {
+        fontSize: 15, fontWeight: 'bold', marginRight: 6, color: '#E80071'
+    }
 })

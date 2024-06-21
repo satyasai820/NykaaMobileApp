@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 import SwiperFlatListComponent from "../SwiperComponent";
 
 const HomeSecondSwiper = () => {
@@ -11,12 +11,12 @@ const HomeSecondSwiper = () => {
 }
 
 export default HomeSecondSwiper;
-
+const screenWidth = Dimensions.get('window').width;
 const styles = StyleSheet.create({
     container :{
-        width:350,
-        height:350,
-        marginHorizontal:5,
+        width: screenWidth < 380 ? 300 : screenWidth <= 420 ? 330 : 350,
+        height: screenWidth < 380 ? 300 : screenWidth <= 420 ? 330 : 350,
+        marginHorizontal: screenWidth < 380 ? 8 : screenWidth <= 420 ? 8 : 5,
         borderRadius:10,
         marginVertical:10
     }

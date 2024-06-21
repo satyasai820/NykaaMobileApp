@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, Dimensions } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
 import { useState } from "react";
 import { TouchableOpacity } from "react-native";
@@ -8,6 +8,8 @@ const SecondComponent = () => {
     const handleShowMore = () => {
         setShowMore(!showMore);
     }
+
+    const innerImages =[ {img:'https://adn-static1.nykaa.com/media/wysiwyg/LAKME00001740Assets_01.jpg'}, {img:'https://adn-static1.nykaa.com/media/wysiwyg/LAKME00001740Assets_02.jpg'}, {img:'https://adn-static1.nykaa.com/media/wysiwyg/LAKME00001740Assets_03.jpg'},{img:'https://adn-static1.nykaa.com/media/wysiwyg/LAKME00001740Assets_04.jpg'},{img:'https://adn-static1.nykaa.com/media/wysiwyg/LAKME00001740Assets_05.jpg'},{img:'https://adn-static1.nykaa.com/media/wysiwyg/LAKME00001740Assets_06.jpg'},]
 
     return (
         <>
@@ -41,12 +43,15 @@ const SecondComponent = () => {
                     
                     <View style={{height: showMore ? 'auto' : 200, overflow:'hidden'}}>
                     <View>
-                        <Image style={styles.images} source={{ uri: 'https://adn-static1.nykaa.com/media/wysiwyg/LAKME00001740Assets_01.jpg' }} />
+                        {innerImages.map((item, index) => (
+                                 <Image style={ index === 0 ? styles.images : index === innerImages.length-1 ? styles.imagesThree : styles.imagesTwo} source={{ uri: item.img}} key={index} />
+                        ))}
+                        {/* <Image style={styles.images} source={{ uri: 'https://adn-static1.nykaa.com/media/wysiwyg/LAKME00001740Assets_01.jpg' }} />
                         <Image style={styles.imagesTwo} source={{ uri: 'https://adn-static1.nykaa.com/media/wysiwyg/LAKME00001740Assets_02.jpg' }} />
                         <Image style={styles.imagesTwo} source={{ uri: 'https://adn-static1.nykaa.com/media/wysiwyg/LAKME00001740Assets_03.jpg' }} />
                         <Image style={styles.imagesTwo} source={{ uri: 'https://adn-static1.nykaa.com/media/wysiwyg/LAKME00001740Assets_04.jpg' }} />
                         <Image style={styles.imagesTwo} source={{ uri: 'https://adn-static1.nykaa.com/media/wysiwyg/LAKME00001740Assets_05.jpg' }} />
-                        <Image style={styles.imagesThree} source={{ uri: 'https://adn-static1.nykaa.com/media/wysiwyg/LAKME00001740Assets_06.jpg' }} />
+                        <Image style={styles.imagesThree} source={{ uri: 'https://adn-static1.nykaa.com/media/wysiwyg/LAKME00001740Assets_06.jpg' }} /> */}
                     </View>
                     </View>
                 </View>
@@ -62,6 +67,8 @@ const SecondComponent = () => {
 }
 
 export default SecondComponent;
+
+const screenWidth = Dimensions.get('window').width;
 
 const styles = StyleSheet.create({
     container: {
@@ -101,15 +108,15 @@ const styles = StyleSheet.create({
     },
     images: {
         width: '100%',
-        height: 280
+        height: screenWidth < 380 ? 220 : 275
     },
     imagesTwo: {
         width: '100%',
-        height: 395
+        height: screenWidth < 380 ? 320 : screenWidth <= 420 ? 380 : 395
     },
     imagesThree: {
         width: '100%',
-        height: 220
+        height: screenWidth < 380 ? 180 : 220
     },
     buttonContainer: {
         borderTopWidth: 1,

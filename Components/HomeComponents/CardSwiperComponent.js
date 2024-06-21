@@ -1,4 +1,4 @@
-import { View, FlatList, Image, Text, StyleSheet } from "react-native";
+import { View, FlatList, Image, Text, StyleSheet, Dimensions } from "react-native";
 import {EvilIcons} from '@expo/vector-icons';
 
 const CardSwiperComponent = ({ data, styled }) => {
@@ -36,12 +36,14 @@ const CardSwiperComponent = ({ data, styled }) => {
 
 export default CardSwiperComponent;
 
+const screenWidth = Dimensions.get('window').width;
+
 const styles = StyleSheet.create({
     container: {
         margin: 5,
     },
     innerContainer: {
-        margin: 9
+        margin: screenWidth < 380 ? 5 : screenWidth <= 420 ? 3 : 9
     },
     title: {
         fontSize: 15,

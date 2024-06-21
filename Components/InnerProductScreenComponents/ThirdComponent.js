@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, FlatList, Image } from "react-native";
+import { View, Text, StyleSheet, FlatList, Image, Dimensions } from "react-native";
 import { MaterialCommunityIcons, EvilIcons, Ionicons } from '@expo/vector-icons';
 
 const ThirdComponent = () => {
@@ -65,10 +65,10 @@ const ThirdComponent = () => {
                     </View>
                 </View>
             </View>
-            <View style={{ marginVertical: 15, backgroundColor: '#FFFFFF', paddingVertical: 15,}}>
+            <View style={{ marginVertical: 15, backgroundColor: '#FFFFFF', paddingVertical: 15, }}>
                 <View style={{ flexDirection: 'row', alignItems: 'center', paddingHorizontal: 20, justifyContent: 'space-between' }}>
-                    <View style={{ width: '10%' }}>
-                        <EvilIcons name="heart" size={28} style={{ padding: 10, borderWidth: 1, borderColor: '#ccc', textAlign: 'center', borderRadius: 5 }} />
+                    <View style={{ width: '12%' }}>
+                        <EvilIcons name="heart" size={28} style={styles.icon } />
                     </View>
                     <View style={{ width: '85%', flexDirection: 'row', alignItems: 'center', backgroundColor: '#E80071', borderRadius: 5, justifyContent: 'center' }}>
                         <Ionicons name="bag-handle-outline" size={21} color='white' />
@@ -81,6 +81,8 @@ const ThirdComponent = () => {
 }
 
 export default ThirdComponent;
+
+const screenWidth = Dimensions.get('window').width;
 
 const styles = StyleSheet.create({
     container: {
@@ -148,6 +150,13 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         paddingVertical: 11,
         marginLeft: 10
+    },
+    icon: {
+        padding: screenWidth < 380 ? 6 : 9,
+        borderWidth: 1,
+        borderColor: '#ccc',
+        textAlign: 'center',
+        borderRadius: 5
     }
 
 })

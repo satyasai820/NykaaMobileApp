@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions } from "react-native";
 import { Ionicons, EvilIcons } from '@expo/vector-icons';
 import { useNavigation } from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -13,7 +13,10 @@ const CardsComponent = ({ data, title }) => {
        await AsyncStorage.setItem('innerImages', productImgs);
        navigation.navigate('innerProducts');
 
-    }
+    }   
+    const stars = Array.from({ length: 4 }, (_, index) => (
+        <Ionicons key={index} name="star" />
+      ));
 
     return (
         <>
@@ -42,11 +45,8 @@ const CardsComponent = ({ data, title }) => {
                                 <Text style={styles.subtitle}>300ml</Text>
                                 <Text><Text>₹422 </Text><Text style={{ fontSize: 13, color: 'grey', textDecorationLine: 'line-through' }}>₹549</Text><Text style={{ fontSize: 13, color: 'green' }}> 23%</Text></Text>
                                 <View style={{flexDirection:'row'}}>
-                                    <Ionicons name="star" />
-                                    <Ionicons name="star" />
-                                    <Ionicons name="star" />
-                                    <Ionicons name="star" />
-                                    <Ionicons name="star-outline" />
+                                   {stars}
+                                    <Ionicons name="star-outline" /> 
                                 </View>
                             </View>
                                 <View style={styles.buttonView}>
@@ -67,6 +67,8 @@ const CardsComponent = ({ data, title }) => {
 }
 
 export default CardsComponent;
+
+const screenWidth = Dimensions.get('window').width;
 
 const styles = StyleSheet.create({
     container: {
@@ -99,7 +101,7 @@ const styles = StyleSheet.create({
     text: {
         borderWidth: 1,
         borderColor: '#ccc',
-        paddingHorizontal: 10,
+        paddingHorizontal: screenWidth < 420 ? 6 : 10,
         paddingVertical: 5,
         borderRadius: 10,
         marginHorizontal: 5,
@@ -108,10 +110,10 @@ const styles = StyleSheet.create({
     },
     cardsImage: {
         width: '100%',
-        height: 180
+        height: screenWidth < 380 ? 150 : screenWidth <= 420 ? 170 : 180,
     },
     innerContainer: {
-        margin: 9,
+        margin: screenWidth < 380 ? 6 : 9,
         width: '45%',
     },
     title: {
@@ -131,7 +133,7 @@ const styles = StyleSheet.create({
         borderColor: '#E80071',
         borderWidth: 1,
         borderRadius: 10,
-        width:'20%',
+        width: screenWidth < 380 ? '22%' : '20%',
         justifyContent:'center',
         alignItems:'center'
     },

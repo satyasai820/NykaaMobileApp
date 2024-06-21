@@ -36,7 +36,7 @@ const AccountFooterComponent = () => {
                         <Image style={{ width: 100, height: 25 }} source={require('../assets/nykaa-1 1.png')} />
                         <Text style={{ color: 'grey' }}>ver 3.5.3(25934)</Text>
                     </View>
-                    <View style={{ flexWrap: 'wrap', flex: 1, flexDirection: 'row', justifyContent: 'center' }}>
+                    <View style={styles.loopContainer}>
                         {iconsData.map((item, index) => (
                             <View style={styles.iconText} key={index}>
                                 <View style={{ flexDirection: 'row' }}>
@@ -126,5 +126,12 @@ const styles = StyleSheet.create({
         borderTopWidth: 1,
         borderColor: '#ccc'
 
+    },
+
+    loopContainer: {
+        flexWrap: 'wrap',
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'center',
     }
 })
