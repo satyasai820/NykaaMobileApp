@@ -26,6 +26,10 @@ const FirstSwiperComponent = () => {
 
     console.log('getting data ---->', cardImages);
 
+    const stars = Array.from({length:4}, (_, index) => (
+        <AntDesign name="star" size={16} style={{ marginHorizontal: 2 }} key={index} />
+    ));
+
 
 
     return (
@@ -59,11 +63,12 @@ const FirstSwiperComponent = () => {
                         <Text style={styles.titleText}> Vitamin C Superglow Skin Perfecting Primer with 1 % Vit C
                             (30ml)</Text>
                         <View style={{ flexDirection: 'row', marginVertical: 10, alignItems: 'center' }}>
+                            {/* <AntDesign name="star" size={16} style={{ marginHorizontal: 2 }} />
                             <AntDesign name="star" size={16} style={{ marginHorizontal: 2 }} />
                             <AntDesign name="star" size={16} style={{ marginHorizontal: 2 }} />
                             <AntDesign name="star" size={16} style={{ marginHorizontal: 2 }} />
-                            <AntDesign name="star" size={16} style={{ marginHorizontal: 2 }} />
-                            <AntDesign name="star" size={16} style={{ marginHorizontal: 2 }} />
+                            <AntDesign name="star" size={16} style={{ marginHorizontal: 2 }} /> */}
+                            {stars}
                             <Text style={{ fontWeight: 'bold', fontSize: 15 }}>4.8/5 <Text style={{ color: 'grey' }}>(23)</Text></Text>
                         </View>
                         <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 8 }}>
