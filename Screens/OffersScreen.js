@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image, ScrollView, } from "react-native";
+import Imports from "../Components/Imports";
 
 import HomeSeventhSwiperComponent from "../Components/HomeComponents/HomeSeventhSwiperComponent";
 import HomeSwiperEightComponent from "../Components/HomeComponents/HomeSwiperEightComponent";
@@ -14,12 +14,8 @@ import HomeWatchAndShopSwiperComponent from "../Components/HomeComponents/HomeWa
 
 const OfferScreen = () => {
     return (
-        <ScrollView showsVerticalScrollIndicator={false}>
-            {/* <View style={styles.constainer}>
-                <Image style={{ width: 200, height: 250 }} source={require('../assets/offers-image.png')} />
-                <Text style={{ fontSize: 16, color: 'grey', fontWeight: 'bold' }}>Nothing In this Screen</Text>
-            </View> */}
-            <View style={{backgroundColor:'#FFFFFF'}}>
+        <Imports.ScrollView showsVerticalScrollIndicator={false}>
+            <Imports.View style={{backgroundColor:'#FFFFFF'}}>
             <HomeDiscoverSwiperComponent />
             <HomeStellerSwiperComponent />
             <HomeHotListCardSwiperComponent />
@@ -31,18 +27,12 @@ const OfferScreen = () => {
             <HomeBeautyGuideSwiperComponent />
             <HomeGetGiftingBannerComponent />
             <HomeWatchAndShopSwiperComponent />
-            </View>
-        </ScrollView>
+            </Imports.View>
+        </Imports.ScrollView>
     )
 }
 
 export default OfferScreen;
 
-const styles = StyleSheet.create({
-    constainer: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
-    }
-})
+
 

@@ -1,5 +1,6 @@
-import { StyleSheet, View, Image, Dimensions } from "react-native";
+
 import SwiperFlatListComponent from "../SwiperComponent";
+import Imports from "../Imports";
 
 const HomeSeventhSwiperComponent = () => {
 
@@ -10,24 +11,24 @@ const HomeSeventhSwiperComponent = () => {
 
     return(
         <>
-        <View style={styles.container}>
-            <View>
-                <Image style={styles.bannerImage} source={{uri:'https://images-static.nykaa.com/uploads/c802253f-4056-42bb-aa92-387bde3b454f.jpg?tr=cm-pad_resize,w-1200'}} />
+        <Imports.View style={styles.container}>
+            <Imports.View>
+                <Imports.Image style={styles.bannerImage} source={{uri:'https://images-static.nykaa.com/uploads/c802253f-4056-42bb-aa92-387bde3b454f.jpg?tr=cm-pad_resize,w-1200'}} />
                 <SwiperFlatListComponent data={circleImages} styled={styles.circleImagesStyle} />
-            </View>
-            <View>
+            </Imports.View>
+            <Imports.View>
             <SwiperFlatListComponent data={SwiperData} styled={styles.swiperImages} />
-            </View>
-        </View>
+            </Imports.View>
+        </Imports.View>
         </>
     )
 }
 
 export default HomeSeventhSwiperComponent;
 
-const screenWidth = Dimensions.get('window').width;
+const screenWidth = Imports.Dimensions.get('window').width;
 
-const styles = StyleSheet.create({
+const styles = Imports.StyleSheet.create({
     container : {
         padding:10,
     },

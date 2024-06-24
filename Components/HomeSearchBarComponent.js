@@ -1,25 +1,26 @@
-import { StyleSheet, TextInput, View, Text } from "react-native";
-import {EvilIcons} from '@expo/vector-icons'
+
+import Imports from "./Imports";
+
 const SearchBarComponent = () => {
     return(
         <>
-        <View style={styles.container}>
-        <View style={styles.innerView}>
-            <View style={styles.icon}>
-                <EvilIcons name="search" color='#E80071' size={25} />
-            </View>
-            <View style={styles.icon}>
-                <Text >Search for <Text style={{color:'#E80071'}}>Shampoos</Text></Text>
-            </View>
-        </View>
-        </View>
+        <Imports.View style={styles.container}>
+        <Imports.View style={styles.innerView}>
+            <Imports.View style={styles.icon}>
+                <Imports.EvilIcons name="search" color='#E80071' size={25} />
+            </Imports.View>
+            <Imports.View style={styles.icon}>
+                <Imports.Text >Search for <Imports.Text style={{color:'#E80071'}}>Shampoos</Imports.Text></Imports.Text>
+            </Imports.View>
+        </Imports.View>
+        </Imports.View>
         </>
     )
 }
 
 export default SearchBarComponent;
 
-const styles = StyleSheet.create({
+const styles = Imports.StyleSheet.create({
     container : {
         backgroundColor:'#ffffff',
     },

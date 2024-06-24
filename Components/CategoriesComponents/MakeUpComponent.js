@@ -1,17 +1,14 @@
-import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { Entypo } from '@expo/vector-icons';
+
 import { useState } from "react";
-import { useNavigation } from "@react-navigation/native";
+import Imports from "../Imports";
 
 const MakeUpComponent = () => {
 
-    const navigation = useNavigation();
+    const navigation = Imports.useNavigation();
 
     const data = [{ n: 'Eyes' }, { n: 'Lips' }, { n: 'Nails' }, { n: 'Tools & Brushes' }, { n: 'Mulyi-Functional Makeup' }, { n: 'Makeuo Kits & Combos' }]
 
     const faceData = [{ n: 'Compact' }, { n: 'Contour' }, { n: 'Losse Powder' }, { n: 'Blush' }, { n: 'BB & CC Cream' }, { n: 'Highlighters' }, { n: 'Setting Spray' }, { n: 'Sindoor' },]
-
-    const eyesData = [{n:'Kajal'},{n:'Eyeliner'},{n:'Mascara'},{n:'Eye Shadow'},{n:'Eye Brow Enhancers'},{n:'Eye Primer'},{n:'false Eyelashes'},{n:'Eye Makeup Remover'},{n:'Under Eye Concler'},{n:'Contact Lenses'},]
 
     const [showDropdown, setShowDropdown] = useState(false);
     const [showStaticDropdown , setShowStaticDropdown] = useState('');
@@ -25,53 +22,53 @@ const MakeUpComponent = () => {
     }
 
     return (
-        <ScrollView>
-            <View style={styles.container}>
-                <View>
-                    <Text style={styles.text}>MakeUp</Text>
-                </View>
-                <View style={styles.innerContainer}>
-                    <Text>Complete Makeup Collection</Text>
-                    <Entypo size={18} name="chevron-down" style={{ marginLeft: 'auto' }} />
-                </View>
-                <TouchableOpacity style={styles.dropDowmContainer} onPress={handleDropDownToggle} >
-                    <Text style={[styles.dropDowmText, { color: showDropdown ? '#E80071' : 'orange' }]}>Face</Text>
-                    <Entypo size={18} name={showDropdown ? 'chevron-up' : 'chevron-down'} style={{ marginLeft: 'auto', color: showDropdown ? '#E80071' : 'orange', }} />
-                </TouchableOpacity>
-                <View>
+        <Imports.ScrollView>
+            <Imports.View style={styles.container}>
+                <Imports.View>
+                    <Imports.Text style={styles.text}>MakeUp</Imports.Text>
+                </Imports.View>
+                <Imports.View style={styles.innerContainer}>
+                    <Imports.Text>Complete Makeup Collection</Imports.Text>
+                    <Imports.Entypo size={18} name="chevron-down" style={{ marginLeft: 'auto' }} />
+                </Imports.View>
+                <Imports.TouchableOpacity style={styles.dropDowmContainer} onPress={handleDropDownToggle} >
+                    <Imports.Text style={[styles.dropDowmText, { color: showDropdown ? '#E80071' : 'orange' }]}>Face</Imports.Text>
+                    <Imports.Entypo size={18} name={showDropdown ? 'chevron-up' : 'chevron-down'} style={{ marginLeft: 'auto', color: showDropdown ? '#E80071' : 'orange', }} />
+                </Imports.TouchableOpacity>
+                <Imports.View>
                     {showDropdown ? (
                         <>
-                            <TouchableOpacity style={{ marginVertical: 12 }} onPress={() => navigation.navigate('Product',{id : 'faceprimer'})}>
-                                <Text style={{ fontSize: 16, color:'orange' }}>Face Primer</Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity style={{ marginVertical: 12 }} onPress={() => navigation.navigate('Product',{id : 'concealer'})}>
-                                <Text style={{ fontSize: 16, color:'orange' }}>Concealer</Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity style={{ marginVertical: 12 }} onPress={() => navigation.navigate('Product',{id : 'foundation'})}>
-                                <Text style={{ fontSize: 16, color:'orange' }}>Foundation</Text>
-                            </TouchableOpacity>
+                            <Imports.TouchableOpacity style={{ marginVertical: 12 }} onPress={() => navigation.navigate('Product',{id : 'faceprimer'})}>
+                                <Imports.Text style={{ fontSize: 16, color:'orange' }}>Face Primer</Imports.Text>
+                            </Imports.TouchableOpacity>
+                            <Imports.TouchableOpacity style={{ marginVertical: 12 }} onPress={() => navigation.navigate('Product',{id : 'concealer'})}>
+                                <Imports.Text style={{ fontSize: 16, color:'orange' }}>Concealer</Imports.Text>
+                            </Imports.TouchableOpacity>
+                            <Imports.TouchableOpacity style={{ marginVertical: 12 }} onPress={() => navigation.navigate('Product',{id : 'foundation'})}>
+                                <Imports.Text style={{ fontSize: 16, color:'orange' }}>Foundation</Imports.Text>
+                            </Imports.TouchableOpacity>
                             {faceData.map((item, index) => (
-                                <View style={{ marginVertical: 12 }} key={index}>
-                                    <Text style={{ fontSize: 16 }}>{item.n}</Text>
-                                </View>
+                                <Imports.View style={{ marginVertical: 12 }} key={index}>
+                                    <Imports.Text style={{ fontSize: 16 }}>{item.n}</Imports.Text>
+                                </Imports.View>
                             ))}
                         </>
                     ) : ('')}
-                </View>
+                </Imports.View>
                 {data.map((item, index) => (
-                    <TouchableOpacity style={styles.dropDowmContainer} key={index} onPress={() => handleStaticDropDown(index)}>
-                        <Text style={styles.dropDowmText}>{item.n}</Text>
-                        <Entypo size={18} name="chevron-down" style={{ marginLeft: 'auto' }} />
-                    </TouchableOpacity>
+                    <Imports.TouchableOpacity style={styles.dropDowmContainer} key={index} onPress={() => handleStaticDropDown(index)}>
+                        <Imports.Text style={styles.dropDowmText}>{item.n}</Imports.Text>
+                        <Imports.Entypo size={18} name="chevron-down" style={{ marginLeft: 'auto' }} />
+                    </Imports.TouchableOpacity>
                 ))}
-                </View>
-        </ScrollView>
+                </Imports.View>
+        </Imports.ScrollView>
     )
 }
 
 export default MakeUpComponent;
 
-const styles = StyleSheet.create({
+const styles = Imports.StyleSheet.create({
     container: {
         marginHorizontal: 20,
         marginVertical: 10

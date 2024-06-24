@@ -1,26 +1,27 @@
-import { StyleSheet, View } from "react-native";
-import {Ionicons} from '@expo/vector-icons'
+
+import Imports from "./Imports";
+
 const HeaderRightComponentView = ({display}) => {
     return(
         <>
-        <View style={styles.container}>
-            <View>
-                <Ionicons style={[styles.innerContainer,{display:display || 'block'}]} name="notifications-outline" size={25} />
-            </View>
-            <View>
-                <Ionicons style={styles.innerContainer} name="heart-outline" size={25}/>
-            </View>
-            <View>
-                <Ionicons style={styles.innerContainer} name="bag-outline" size={25} />
-            </View>
-        </View>
+        <Imports.View style={styles.container}>
+            <Imports.View>
+                <Imports.Ionicons style={[styles.innerContainer,{display:display || 'block'}]} name="notifications-outline" size={25} />
+            </Imports.View>
+            <Imports.View>
+                <Imports.Ionicons style={styles.innerContainer} name="heart-outline" size={25}/>
+            </Imports.View>
+            <Imports.View>
+                <Imports.Ionicons style={styles.innerContainer} name="bag-outline" size={25} />
+            </Imports.View>
+        </Imports.View>
         </>
     )
 }
 
 export default HeaderRightComponentView;
 
-const styles = StyleSheet.create({
+const styles = Imports.StyleSheet.create({
     container : {
         justifyContent:'center',
         alignItems:'center',

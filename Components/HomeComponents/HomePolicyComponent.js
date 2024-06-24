@@ -1,25 +1,26 @@
-import { Dimensions, Image, StyleSheet, View } from "react-native";
+
+import Imports from "../Imports";
 
 const HomePolicyComponent = () => {
     return(
         <>
-        <View style={styles.container}>
-            <View>
-            <Image style={styles.imageStyle} source={{uri:'https://images-static.nykaa.com/uploads/8c44a337-2f37-41ee-974c-79b0d6ace79e.jpg?tr=cm-pad_resize,w-900'}} />
-            </View>
-            <View>
-                <Image style={styles.textImage} source={{uri:'https://images-static.nykaa.com/uploads/4dd6ad28-3331-4f39-9b5d-1a48ed466cd5.jpg?tr=cm-pad_resize,w-900'}} />
-            </View>
-        </View>
+        <Imports.View style={styles.container}>
+            <Imports.View>
+            <Imports.Image style={styles.imageStyle} source={{uri:'https://images-static.nykaa.com/uploads/8c44a337-2f37-41ee-974c-79b0d6ace79e.jpg?tr=cm-pad_resize,w-900'}} />
+            </Imports.View>
+            <Imports.View>
+                <Imports.Image style={styles.textImage} source={{uri:'https://images-static.nykaa.com/uploads/4dd6ad28-3331-4f39-9b5d-1a48ed466cd5.jpg?tr=cm-pad_resize,w-900'}} />
+            </Imports.View>
+        </Imports.View>
         </>
     )
 }
 
 export default HomePolicyComponent;
 
-const screenWidth = Dimensions.get('window').width
+const screenWidth = Imports.Dimensions.get('window').width
 
-const styles = StyleSheet.create({
+const styles = Imports.StyleSheet.create({
     container : {
         padding:10,
         justifyContent:'center',

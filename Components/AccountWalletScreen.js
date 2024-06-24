@@ -1,42 +1,43 @@
-import { View, Text, StyleSheet, Image } from "react-native";
+
+import Imports from "./Imports";
 
 const Wallet = () => {
     return (
-        <View>
-            <View style={styles.container}>
-                <View style={styles.innerContainer}>
-                    <Text style={{fontSize:16}}>Wallet Balance</Text>
-                    <Text style={{fontSize:25, color:'#E80071', fontWeight:'bold'}}>₹20</Text>
-                </View>
-            </View>
-            <View style={styles.secondContainer}>
-                <View>
-                    <Text style={styles.textStyle}>NYKAA CASH</Text>
-                </View>
-                <View style={{flexDirection:'row'}}>
-                    <Text style={{marginHorizontal:10,fontSize:18, fontWeight:'bold'}}>₹0</Text>
-                    <Text style={{marginHorizontal:10,fontSize:18, color:'#E80071', fontWeight:'bold'}}>History</Text>
-                </View>
-            </View>
-            <View style={styles.secondContainer}>
-                <View>
-                    <Text style={styles.textStyle}>NYKAA REWARDS</Text>
-                </View>
-                <View style={{flexDirection:'row'}}>
-                    <Text style={{marginHorizontal:10,fontSize:18, fontWeight:'bold'}}>₹20</Text>
-                    <Text style={{marginHorizontal:10,fontSize:18, color:'#E80071', fontWeight:'bold'}}>History</Text>
-                </View>
-            </View>
-            <View style={{margin:10}}>
-                <Image style={{width:'100%', height:200}} source={{uri:'https://www.nykaa.com/media/wysiwyg/NykaaWallet/wallet_footer_banner_3.png'}} />
-            </View>
-        </View>
+        <Imports.View>
+            <Imports.View style={styles.container}>
+                <Imports.View style={styles.innerContainer}>
+                    <Imports.Text style={{fontSize:16}}>Wallet Balance</Imports.Text>
+                    <Imports.Text style={{fontSize:25, color:'#E80071', fontWeight:'bold'}}>₹20</Imports.Text>
+                </Imports.View>
+            </Imports.View>
+            <Imports.View style={styles.secondContainer}>
+                <Imports.View>
+                    <Imports.Text style={styles.textStyle}>NYKAA CASH</Imports.Text>
+                </Imports.View>
+                <Imports.View style={{flexDirection:'row'}}>
+                    <Imports.Text style={{marginHorizontal:10,fontSize:18, fontWeight:'bold'}}>₹0</Imports.Text>
+                    <Imports.Text style={{marginHorizontal:10,fontSize:18, color:'#E80071', fontWeight:'bold'}}>History</Imports.Text>
+                </Imports.View>
+            </Imports.View>
+            <Imports.View style={styles.secondContainer}>
+                <Imports.View>
+                    <Imports.Text style={styles.textStyle}>NYKAA REWARDS</Imports.Text>
+                </Imports.View>
+                <Imports.View style={{flexDirection:'row'}}>
+                    <Imports.Text style={{marginHorizontal:10,fontSize:18, fontWeight:'bold'}}>₹20</Imports.Text>
+                    <Imports.Text style={{marginHorizontal:10,fontSize:18, color:'#E80071', fontWeight:'bold'}}>History</Imports.Text>
+                </Imports.View>
+            </Imports.View>
+            <Imports.View style={{margin:10}}>
+                <Imports.Image style={{width:'100%', height:200}} source={{uri:'https://www.nykaa.com/media/wysiwyg/NykaaWallet/wallet_footer_banner_3.png'}} />
+            </Imports.View>
+        </Imports.View>
     )
 }
 
 export default Wallet;
 
-const styles = StyleSheet.create({
+const styles = Imports.StyleSheet.create({
         container : {
             backgroundColor:'#FFFFFF',
             marginTop:10,

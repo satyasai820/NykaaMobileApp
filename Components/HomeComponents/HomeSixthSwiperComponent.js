@@ -1,5 +1,7 @@
-import { StyleSheet, View, Image, Dimensions } from "react-native";
+
 import SwiperFlatListComponent from "../SwiperComponent";
+import Imports from "../Imports";
+
 
 const HomeSixthSwiperComponent = () => {
     const SwiperData = [{ img: 'https://images-static.nykaa.com/uploads/d395cdcd-733f-4a1b-aa3f-19cf7fced53c.jpg?tr=cm-pad_resize,w-200' }, { img: 'https://images-static.nykaa.com/uploads/1eeb32d8-cd9a-4e04-88cc-163a1d38fbbe.jpg?tr=cm-pad_resize,w-200' }, { img: 'https://images-static.nykaa.com/uploads/61858b3d-50d4-41af-8fae-626967ff914c.jpg?tr=cm-pad_resize,w-200' }, { img: 'https://images-static.nykaa.com/uploads/348cfad0-023d-4429-ab3a-f42a87393b2b.jpg?tr=cm-pad_resize,w-200' }, { img: 'https://images-static.nykaa.com/uploads/6214484e-e5ef-4c65-944e-bf10ef6964a2.jpg?tr=cm-pad_resize,w-200' }, { img: 'https://images-static.nykaa.com/uploads/c5426ba6-8f5d-4787-80e0-49fb47fbdd1b.jpg?tr=cm-pad_resize,w-200' }, { img: 'https://images-static.nykaa.com/uploads/7766dd1d-bf43-4c5b-8296-10097d31732c.jpg?tr=cm-pad_resize,w-200' }, { img: 'https://images-static.nykaa.com/uploads/74e53def-2acc-4ef9-bb77-3f1db1a34cac.jpg?tr=cm-pad_resize,w-200' }, { img: 'https://images-static.nykaa.com/uploads/81133b78-6d34-4d0b-aa55-b54cbff33394.jpg?tr=cm-pad_resize,w-200' }, { img: 'https://images-static.nykaa.com/uploads/3cb45e61-4cff-4e1d-aec2-2a555febd850.jpg?tr=cm-pad_resize,w-200' }]
@@ -8,27 +10,27 @@ const HomeSixthSwiperComponent = () => {
 
     return (
         <>
-            <View style={styles.container}>
-                <View>
-                    <Image style={styles.imageStyle} source={{ uri: 'https://images-static.nykaa.com/uploads/94e9019e-908b-4053-94c3-afd0527c6e45.jpg?tr=cm-pad_resize,w-600' }} />
-                </View>
-                <View>
+            <Imports.View style={styles.container}>
+                <Imports.View>
+                    <Imports.Image style={styles.imageStyle} source={{ uri: 'https://images-static.nykaa.com/uploads/94e9019e-908b-4053-94c3-afd0527c6e45.jpg?tr=cm-pad_resize,w-600' }} />
+                </Imports.View>
+                <Imports.View>
                     <SwiperFlatListComponent data={SwiperData} styled={styles.SwiperImages} />
-                </View>
-                <View>
+                </Imports.View>
+                <Imports.View>
                     <SwiperFlatListComponent data={SwiperData2} styled={styles.swiperImagesTwo} />
-                    <Image style={styles.buttonImages} source={{ uri: 'https://images-static.nykaa.com/uploads/4a4dc257-af38-4b6f-996a-733dfa01fba6.jpg?tr=cm-pad_resize,w-600' }} />
-                </View>
-            </View>
+                    <Imports.Image style={styles.buttonImages} source={{ uri: 'https://images-static.nykaa.com/uploads/4a4dc257-af38-4b6f-996a-733dfa01fba6.jpg?tr=cm-pad_resize,w-600' }} />
+                </Imports.View>
+            </Imports.View>
         </>
     )
 }
 
 export default HomeSixthSwiperComponent;
 
-const screenWidth = Dimensions.get('window').width;
+const screenWidth = Imports.Dimensions.get('window').width;
 
-const styles = StyleSheet.create({
+const styles = Imports.StyleSheet.create({
     container: {
         padding: 10,
     },

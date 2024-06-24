@@ -1,10 +1,10 @@
-import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions } from "react-native";
-import { Ionicons, EvilIcons } from '@expo/vector-icons';
-import { useNavigation } from "@react-navigation/native";
+
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import Imports from "../Imports";
+
 
 const CardsComponent = ({ data, title }) => {
-    const navigation = useNavigation();
+    const navigation = Imports.useNavigation();
     const tags = [{ n: 'Luxe', icon: 'diamond-outline' }, { n: 'On Offer', icon: 'medical-outline' }, { n: 'Top Rated', icon: 'star-outline' }, { n: 'New', icon: 'pricetag-outline' },]
 
     const handleInnerImages = async (innerData) => {
@@ -12,65 +12,65 @@ const CardsComponent = ({ data, title }) => {
         const productImgs = JSON.stringify(innerData);
        await AsyncStorage.setItem('innerImages', productImgs);
        navigation.navigate('innerProducts');
-
     }   
+
     const stars = Array.from({ length: 4 }, (_, index) => (
-        <Ionicons key={index} name="star" />
+        <Imports.Ionicons key={index} name="star" />
       ));
 
     return (
         <>
-            <View style={styles.container}>
-                <View>
-                    <Text style={styles.title}>{title}</Text>
-                    <Text style={{ marginTop: 10, color: 'grey' }}>453 products</Text>
-                </View>
-                <View style={styles.secondContainer}>
+            <Imports.View style={styles.container}>
+                <Imports.View>
+                    <Imports.Text style={styles.title}>{title}</Imports.Text>
+                    <Imports.Text style={{ marginTop: 10, color: 'grey' }}>453 products</Imports.Text>
+                </Imports.View>
+                <Imports.View style={styles.secondContainer}>
                     {tags.map((item, index) => (
-                        <View style={styles.text} key={index}>
-                            <Ionicons style={{ color: '#E80071', marginRight: 3 }} size={15} name={item.icon} />
-                            <Text>{item.n} </Text>
-                        </View>
+                        <Imports.View style={styles.text} key={index}>
+                            <Imports.Ionicons style={{ color: '#E80071', marginRight: 3 }} size={15} name={item.icon} />
+                            <Imports.Text>{item.n} </Imports.Text>
+                        </Imports.View>
                     ))}
-                </View>
-                <View style={{ flex: 1, flexDirection: 'row', flexWrap: 'wrap', width: '100%' }}>
+                </Imports.View>
+                <Imports.View style={{ flex: 1, flexDirection: 'row', flexWrap: 'wrap', width: '100%' }}>
                     {data.map((item, index) => (
-                        <TouchableOpacity style={styles.innerContainer} key={index} onPress={() => handleInnerImages(item.innerImgs)}>
-                            <View>
-                                <Image source={{ uri: item.img }} style={styles.cardsImage} />
-                            </View>
-                            <View>
-                                <Text style={styles.title}>Lakme</Text>
-                                <Text style={styles.subtitle}>Vitamin C Superglow Skin Perfecting Primer with 1% Vit C</Text>
-                                <Text style={styles.subtitle}>300ml</Text>
-                                <Text><Text>₹422 </Text><Text style={{ fontSize: 13, color: 'grey', textDecorationLine: 'line-through' }}>₹549</Text><Text style={{ fontSize: 13, color: 'green' }}> 23%</Text></Text>
-                                <View style={{flexDirection:'row'}}>
+                        <Imports.TouchableOpacity style={styles.innerContainer} key={index} onPress={() => handleInnerImages(item.innerImgs)}>
+                            <Imports.View>
+                                <Imports.Image source={{ uri: item.img }} style={styles.cardsImage} />
+                            </Imports.View>
+                            <Imports.View>
+                                <Imports.Text style={styles.title}>Lakme</Imports.Text>
+                                <Imports.Text style={styles.subtitle}>Vitamin C Superglow Skin Perfecting Primer with 1% Vit C</Imports.Text>
+                                <Imports.Text style={styles.subtitle}>300ml</Imports.Text>
+                                <Imports.Text><Imports.Text>₹422 </Imports.Text><Imports.Text style={{ fontSize: 13, color: 'grey', textDecorationLine: 'line-through' }}>₹549</Imports.Text><Imports.Text style={{ fontSize: 13, color: 'green' }}> 23%</Imports.Text></Imports.Text>
+                                <Imports.View style={{flexDirection:'row'}}>
                                    {stars}
-                                    <Ionicons name="star-outline" /> 
-                                </View>
-                            </View>
-                                <View style={styles.buttonView}>
-                                    <View style={styles.textOne}>
-                                        <EvilIcons style={{ padding: 5, color: '#E80071' }} size={20} name="heart" />
-                                    </View>
-                                    <View style={styles.textTwo}>
-                                        <Text style={styles.buttonText}>Add To Buy</Text>
-                                    </View>
-                                </View>
-                        </TouchableOpacity>
+                                    <Imports.Ionicons name="star-outline" /> 
+                                </Imports.View>
+                            </Imports.View>
+                                <Imports.View style={styles.buttonView}>
+                                    <Imports.View style={styles.textOne}>
+                                        <Imports.EvilIcons style={{ padding: 5, color: '#E80071' }} size={20} name="heart" />
+                                    </Imports.View>
+                                    <Imports.View style={styles.textTwo}>
+                                        <Imports.Text style={styles.buttonText}>Add To Buy</Imports.Text>
+                                    </Imports.View>
+                                </Imports.View>
+                        </Imports.TouchableOpacity>
 
                     ))}
-                </View>
-            </View>
+                </Imports.View>
+            </Imports.View>
         </>
     )
 }
 
 export default CardsComponent;
 
-const screenWidth = Dimensions.get('window').width;
+const screenWidth = Imports.Dimensions.get('window').width;
 
-const styles = StyleSheet.create({
+const styles = Imports.StyleSheet.create({
     container: {
         marginHorizontal: 20,
     },

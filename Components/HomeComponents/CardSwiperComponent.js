@@ -1,44 +1,44 @@
-import { View, FlatList, Image, Text, StyleSheet, Dimensions } from "react-native";
-import {EvilIcons} from '@expo/vector-icons';
+
+import Imports from "../Imports";
 
 const CardSwiperComponent = ({ data, styled }) => {
     return (
         <>
-            <View style={styles.container}>
-                <FlatList horizontal={true} showsHorizontalScrollIndicator={false} data={data} renderItem={({ item }) => (
-                    <View style={styles.innerContainer}>
-                        <View>
-                            <Image source={{ uri: item.img }} style={styled} />
-                        </View>
-                        <View>
-                            <Text style={styles.title}>Kay Beauty Hd Liquid Concealer</Text>
-                            <Text style={{ fontSize: 13, color: 'grey' }}>300ml</Text>
-                            <Text><Text>₹422 </Text><Text style={{ fontSize: 13, color: 'grey', textDecorationLine: 'line-through' }}>₹549</Text><Text style={{ fontSize: 13, color: 'green' }}> 23%</Text></Text>
-                        </View>
-                        <View style={styles.buttonView}>
-                            <View>
-                            </View>
-                            <View style={styles.buttonView}>
-                                    <View style={styles.textOne}>
-                                        <EvilIcons style={{padding:5, color:'#E80071'}} size={20} name="heart" />
-                                    </View>
-                                    <View>
-                                        <Text style={styles.textTwo}>Add To Buy</Text>
-                                    </View>
-                            </View>
-                        </View>
-                    </View>
+            <Imports.View style={styles.container}>
+                <Imports.FlatList horizontal={true} showsHorizontalScrollIndicator={false} data={data} renderItem={({ item }) => (
+                    <Imports.View style={styles.innerContainer}>
+                        <Imports.View>
+                            <Imports.Image source={{ uri: item.img }} style={styled} />
+                        </Imports.View>
+                        <Imports.View>
+                            <Imports.Text style={styles.title}>Kay Beauty Hd Liquid Concealer</Imports.Text>
+                            <Imports.Text style={{ fontSize: 13, color: 'grey' }}>300ml</Imports.Text>
+                            <Imports.Text><Imports.Text>₹422 </Imports.Text><Imports.Text style={{ fontSize: 13, color: 'grey', textDecorationLine: 'line-through' }}>₹549</Imports.Text><Imports.Text style={{ fontSize: 13, color: 'green' }}> 23%</Imports.Text></Imports.Text>
+                        </Imports.View>
+                        <Imports.View style={styles.buttonView}>
+                            <Imports.View>
+                            </Imports.View>
+                            <Imports.View style={styles.buttonView}>
+                                    <Imports.View style={styles.textOne}>
+                                        <Imports.EvilIcons style={{padding:5, color:'#E80071'}} size={20} name="heart" />
+                                    </Imports.View>
+                                    <Imports.View>
+                                        <Imports.Text style={styles.textTwo}>Add To Buy</Imports.Text>
+                                    </Imports.View>
+                            </Imports.View>
+                        </Imports.View>
+                    </Imports.View>
                 )} />
-            </View>
+            </Imports.View>
         </>
     )
 }
 
 export default CardSwiperComponent;
 
-const screenWidth = Dimensions.get('window').width;
+const screenWidth = Imports.Dimensions.get('window').width;
 
-const styles = StyleSheet.create({
+const styles = Imports.StyleSheet.create({
     container: {
         margin: 5,
     },

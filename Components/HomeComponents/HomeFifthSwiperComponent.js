@@ -1,5 +1,6 @@
-import { View, Text, StyleSheet, Dimensions } from "react-native";
+
 import SwiperFlatListComponentTwo from "../SwiperComponentTwo";
+import Imports from "../Imports";
 
 const HomeFifthSwiperComponent = () => {
 
@@ -7,24 +8,24 @@ const HomeFifthSwiperComponent = () => {
 
     return (
         <>
-            <View style={styles.container}>
-                <View>
-                    <Text style={styles.textOne}>Focuse On :</Text>
-                    <Text style={styles.textTwo}>Today's standout lables</Text>
-                </View>
-                <View>
+            <Imports.View style={styles.container}>
+                <Imports.View>
+                    <Imports.Text style={styles.textOne}>Focuse On :</Imports.Text>
+                    <Imports.Text style={styles.textTwo}>Today's standout lables</Imports.Text>
+                </Imports.View>
+                <Imports.View>
                     <SwiperFlatListComponentTwo data={SwiperData} styled={styles.images} />
-                </View>
-            </View>
+                </Imports.View>
+            </Imports.View>
         </>
     )
 }
 
 export default HomeFifthSwiperComponent;
 
-const screenWidth = Dimensions.get('window').width ; 
+const screenWidth = Imports.Dimensions.get('window').width ; 
 
-const styles = StyleSheet.create({
+const styles = Imports.StyleSheet.create({
     container :{
         padding:10,
     },

@@ -1,8 +1,6 @@
-import { View, StyleSheet, Text, Dimensions } from "react-native";
-import { AntDesign } from '@expo/vector-icons';
 
 import CardSwiperComponent from "./CardSwiperComponent";
-
+import Imports from "../Imports";
 
 const HomeSwiperEightComponent = () => {
 
@@ -16,32 +14,32 @@ const HomeSwiperEightComponent = () => {
 
     return (
         <>
-            <View style={styles.Container}>
-                <View>
-                    <View style={{ flexDirection: 'row' }}>
-                        <Text style={styles.headerTextStyle}>House of Nykaa</Text>
-                        <Text style={styles.headerRightText}>View All <AntDesign name="arrowright" size={16} /></Text>
-                    </View>
-                    <View style={styles.innerContainer}>
-                        <Text style={styles.textStyle1}>All</Text>
-                        <Text style={styles.textStyle}>Make up</Text>
-                        <Text style={styles.textStyle}>Hair</Text>
-                        <Text style={styles.textStyle}>Fragrances</Text>
-                    </View>
-                </View>
-                <View>
+            <Imports.View style={styles.Container}>
+                <Imports.View>
+                    <Imports.View style={{ flexDirection: 'row' }}>
+                        <Imports.Text style={styles.headerTextStyle}>House of Nykaa</Imports.Text>
+                        <Imports.Text style={styles.headerRightText}>View All <Imports.AntDesign name="arrowright" size={16} /></Imports.Text>
+                    </Imports.View>
+                    <Imports.View style={styles.innerContainer}>
+                        <Imports.Text style={styles.textStyle1}>All</Imports.Text>
+                        <Imports.Text style={styles.textStyle}>Make up</Imports.Text>
+                        <Imports.Text style={styles.textStyle}>Hair</Imports.Text>
+                        <Imports.Text style={styles.textStyle}>Fragrances</Imports.Text>
+                    </Imports.View>
+                </Imports.View>
+                <Imports.View>
                     <CardSwiperComponent data={cardSwiperData} styled={styles.swiperImages} />
-                </View>
-            </View>
+                </Imports.View>
+            </Imports.View>
         </>
     )
 }
 
 export default HomeSwiperEightComponent;
 
-const screenWidth = Dimensions.get('window').width;
+const screenWidth = Imports.Dimensions.get('window').width;
 
-const styles = StyleSheet.create({
+const styles = Imports.StyleSheet.create({
     Container: {
         padding: 10,
     },

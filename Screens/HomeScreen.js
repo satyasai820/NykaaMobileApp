@@ -1,12 +1,13 @@
-import { Text, View } from "react-native";
+
+import Imports from "../Components/Imports";
 
 const HomeScreen  = () => {
 
     return(
         <>
-        <View>
-            <Text>This is Home Screen</Text>
-        </View>
+        <Imports.View>
+            <Imports.Text>This is Home Screen</Imports.Text>
+        </Imports.View>
         </>
     )
 }

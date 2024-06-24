@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { StyleSheet, View, Text, Image, Dimensions } from "react-native";
+import Imports from "../Imports";
 
 const HomeStellerSwiperComponent = memo(() => {
 
@@ -7,32 +7,32 @@ const HomeStellerSwiperComponent = memo(() => {
 
     return (
         <>
-            <View style={styles.container}>
-                <View>
-                    <Text style={styles.textOne}>Stellar Selections</Text>
-                    <Text style={styles.textTwo}>Brands you absolutely can't miss</Text>
-                </View>
-                <View style={styles.innerView}>
+            <Imports.View style={styles.container}>
+                <Imports.View>
+                    <Imports.Text style={styles.textOne}>Stellar Selections</Imports.Text>
+                    <Imports.Text style={styles.textTwo}>Brands you absolutely can't miss</Imports.Text>
+                </Imports.View>
+                <Imports.View style={styles.innerView}>
                     {cardsData.map((item, index) => (
-                        <View style={{ margin: 5, width:'47%' }} key={index}>
-                            <View>
-                                <Image source={{ uri: item.img }} style={styles.imageStyle} />
-                                <Text style={styles.innerTextOne}>Flat Rs 399</Text>
-                                <Text style={{ color: 'grey' }}>On All Body Mists!</Text>
-                            </View>
-                        </View>
+                        <Imports.View style={{ margin: 5, width:'47%' }} key={index}>
+                            <Imports.View>
+                                <Imports.Image source={{ uri: item.img }} style={styles.imageStyle} />
+                                <Imports.Text style={styles.innerTextOne}>Flat Rs 399</Imports.Text>
+                                <Imports.Text style={{ color: 'grey' }}>On All Body Mists!</Imports.Text>
+                            </Imports.View>
+                        </Imports.View>
                     ))}
-                </View>
-            </View>
+                </Imports.View>
+            </Imports.View>
         </>
     )
 });
 
 export default HomeStellerSwiperComponent;
 
-const screenWidth = Dimensions.get('window').width;
+const screenWidth = Imports.Dimensions.get('window').width;
 
-const styles = StyleSheet.create({
+const styles = Imports.StyleSheet.create({
     container: {
         padding: 10,
     },

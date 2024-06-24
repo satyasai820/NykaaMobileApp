@@ -1,5 +1,6 @@
-import { FlatList, StyleSheet, View, Image, Text } from "react-native";
+
 import SwiperFlatListComponentTwo from "../SwiperComponentTwo";
+import Imports from "../Imports";
 
 const HomeLastSwiperComponentSwiper = () => {
 
@@ -9,25 +10,25 @@ const HomeLastSwiperComponentSwiper = () => {
 
     return (
         <>
-            <View style={styles.container}>
-                <View>
+            <Imports.View style={styles.container}>
+                <Imports.View>
                     <SwiperFlatListComponentTwo data={SmallImagesData} styled={styles.smallImages} />
-                </View>
-                <View>
-                    <FlatList horizontal={true} showsHorizontalScrollIndicator={false} data={SwiperData} renderItem={({ item }) => (
-                        <View style={{marginVertical:10}}>
-                            <Image style={styles.swiperImages} source={{uri:item.img}}   />
-                            <Text style={{textAlign:'center',fontWeight:'bold',fontSize:18}}>Up to 70% off</Text>
-                        </View>
+                </Imports.View>
+                <Imports.View>
+                    <Imports.FlatList horizontal={true} showsHorizontalScrollIndicator={false} data={SwiperData} renderItem={({ item }) => (
+                        <Imports.View style={{marginVertical:10}}>
+                            <Imports.Image style={styles.swiperImages} source={{uri:item.img}}   />
+                            <Imports.Text style={{textAlign:'center',fontWeight:'bold',fontSize:18}}>Up to 70% off</Imports.Text>
+                        </Imports.View>
                     )} />
-                </View>
-            </View>
+                </Imports.View>
+            </Imports.View>
         </>
     )
 }
 export default HomeLastSwiperComponentSwiper;
 
-const styles = StyleSheet.create({
+const styles = Imports.StyleSheet.create({
     container: {
         paddingHorizontal: 10
     },

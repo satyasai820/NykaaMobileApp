@@ -1,29 +1,28 @@
-import { StyleSheet, View, Text } from "react-native";
-import CardSwiperComponent from "../HomeComponents/CardSwiperComponent";
+
 import HomeHotListCardSwiperComponent from "../HomeComponents/HomeHotListCardSwiperComponent";
+import Imports from "../Imports";
 
 const FourthComponent = () => {
-    const cardsData = [{img:''}]
     return(
         <>
-        <View style={{backgroundColor:'#FFFFFF'}}>
-            <View style={styles.container}>
-                <View>
-                    <Text style={styles.text}>More from Lakme</Text>
-                </View>
-                <View style={{marginLeft:'auto'}}>
-                    <Text style={styles.sideText}>View All</Text>
-                </View>
-            </View>
+        <Imports.View style={{backgroundColor:'#FFFFFF'}}>
+            <Imports.View style={styles.container}>
+                <Imports.View>
+                    <Imports.Text style={styles.text}>More from Lakme</Imports.Text>
+                </Imports.View>
+                <Imports.View style={{marginLeft:'auto'}}>
+                    <Imports.Text style={styles.sideText}>View All</Imports.Text>
+                </Imports.View>
+            </Imports.View>
             <HomeHotListCardSwiperComponent display='none' />
-        </View>
+        </Imports.View>
         </>
     )
 }
 
 export default FourthComponent;
 
-const styles = StyleSheet.create({
+const styles = Imports.StyleSheet.create({
     container : {
         flexDirection:'row',
         alignItems:'center',

@@ -1,23 +1,23 @@
 import React, { memo } from "react";
-import { View, FlatList, Image } from "react-native";
+import Imports from "./Imports";
 
 const SwiperFlatListComponentTwo = ({ data, styled }) => {
   const renderItem = ({ item }) => (
-    <View>
-      <Image source={{ uri: item.img }} style={styled} />
-    </View>
+    <Imports.View>
+      <Imports.Image source={{ uri: item.img }} style={styled} />
+    </Imports.View>
   );
 
   return (
-    <View>
-      <FlatList
+    <Imports.View>
+      <Imports.FlatList
         data={data}
         renderItem={renderItem}
         keyExtractor={(item, index) => index.toString()}
         horizontal={true}
         showsHorizontalScrollIndicator={false}
       />
-    </View>
+    </Imports.View>
   );
 };
 

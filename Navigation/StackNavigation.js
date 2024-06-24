@@ -1,8 +1,7 @@
 
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
-import {Ionicons} from '@expo/vector-icons'
-import { View, Text, StyleSheet, Image } from 'react-native';
+import Imports from '../Components/Imports';
 
 import OrderScreen from '../Components/AccountOrdersScreen';
 import Wallet from '../Components/AccountWalletScreen';
@@ -28,9 +27,9 @@ const StackNavigation = () => {
                     <Stack.Screen name='Orders' component={OrderScreen} />
                     <Stack.Screen name='MyProfile' component={MyProfile} options={{
                         headerTitle:(() => (
-                            <View >
-                                <Text style={{fontSize:18, fontWeight:'bold'}}>My Account</Text>
-                            </View>
+                            <Imports.View >
+                                <Imports.Text style={{fontSize:18, fontWeight:'bold'}}>My Account</Imports.Text>
+                            </Imports.View>
                         ))
                     }} />  
                     <Stack.Screen name='Wallet' component={Wallet} options={{
@@ -51,39 +50,39 @@ const StackNavigation = () => {
                     <Stack.Screen name='Product' component={ProductComponent} options={{
                        
                         headerTitle : () => (
-                            <View>
-                            <Image source={require('../assets/nykaa-1.png')} style={{ width: 80, height: 20 }} />
-                    </View>
+                            <Imports.View>
+                            <Imports.Image source={require('../assets/nykaa-1.png')} style={{ width: 80, height: 20 }} />
+                    </Imports.View>
                         ),
                         headerRight: () => (
-                            <View style={styles.container}>
-                            <View>
-                                <Ionicons style={[styles.innerContainer]} name="search-outline" size={25} />
-                            </View>
-                            <View>
-                                <Ionicons style={styles.innerContainer} name="heart-outline" size={25}/>
-                            </View>
-                            <View>
-                                <Ionicons style={styles.innerContainer} name="bag-outline" size={25} />
-                            </View>
-                        </View>
+                            <Imports.View style={styles.container}>
+                            <Imports.View>
+                                <Imports.Ionicons style={[styles.innerContainer]} name="search-outline" size={25} />
+                            </Imports.View>
+                            <Imports.View>
+                                <Imports.Ionicons style={styles.innerContainer} name="heart-outline" size={25}/>
+                            </Imports.View>
+                            <Imports.View>
+                                <Imports.Ionicons style={styles.innerContainer} name="bag-outline" size={25} />
+                            </Imports.View>
+                        </Imports.View>
                         ),
                         
                     }}/>
                     <Stack.Screen name='innerProducts' component={AllInnerProductComponents} options={{
                         headerTitle : () => '',
                             headerRight: () => (
-                                <View style={styles.container}>
-                                <View>
-                                    <Ionicons style={[styles.innerContainer]} name="search-outline" size={25} />
-                                </View>
-                                <View>
-                                    <Ionicons style={styles.innerContainer} name="heart-outline" size={25}/>
-                                </View>
-                                <View>
-                                    <Ionicons style={styles.innerContainer} name="bag-outline" size={25} />
-                                </View>
-                            </View>
+                                <Imports.View style={styles.container}>
+                                <Imports.View>
+                                    <Imports.Ionicons style={[styles.innerContainer]} name="search-outline" size={25} />
+                                </Imports.View>
+                                <Imports.View>
+                                    <Imports.Ionicons style={styles.innerContainer} name="heart-outline" size={25}/>
+                                </Imports.View>
+                                <Imports.View>
+                                    <Imports.Ionicons style={styles.innerContainer} name="bag-outline" size={25} />
+                                </Imports.View>
+                            </Imports.View>
                             ),
                     }} />
                 </Stack.Navigator>
@@ -95,7 +94,7 @@ const StackNavigation = () => {
 
 export default StackNavigation;
 
-const styles = StyleSheet.create({
+const styles = Imports.StyleSheet.create({
     container : {
         justifyContent:'center',
         alignItems:'center',

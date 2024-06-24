@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { Modal, View, Text, StyleSheet, Image, TextInput, KeyboardAvoidingView, Pressable, Alert, TouchableOpacity } from "react-native";
-import { Ionicons } from '@expo/vector-icons';
 import { firebase } from '../firebase'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import { useNavigation } from '@react-navigation/native';
 import auth from '@react-native-firebase/auth';
+import Imports from './Imports';
 
 const ModalFormComponent = ({ handleCloseModal }) => {
     const [isSignIn, setIsSiginIn] = useState(false);
@@ -80,12 +79,12 @@ const ModalFormComponent = ({ handleCloseModal }) => {
             await AsyncStorage.setItem('email', user.email);
             await AsyncStorage.setItem('name', user.displayName);
             await AsyncStorage.setItem('accessToken', accessToken);
-            Alert.alert('Congratulations!', 'Your account has been successfully created.')
+            Imports.Alert.alert('Congratulations!', 'Your account has been successfully created.')
             navigation.navigate('Account')
             handleCloseModal();
         } catch (error) {
             console.log(error.message);
-            Alert.alert('It looks like you already have an account', 'Please log in instead')
+            Imports.Alert.alert('It looks like you already have an account', 'Please log in instead')
         }
 
 
@@ -100,7 +99,7 @@ const ModalFormComponent = ({ handleCloseModal }) => {
     const handleLoginFunction = async () => {
 
         if (!isValidation()) {
-            Alert.alert('Validation Failed', 'Please check the input fields');
+            Imports.Alert.alert('Validation Failed', 'Please check the input fields');
             return;
         }
 
@@ -114,15 +113,15 @@ const ModalFormComponent = ({ handleCloseModal }) => {
                 await AsyncStorage.setItem('email', user.email);
                 await AsyncStorage.setItem('name', user.displayName);
                 await AsyncStorage.setItem('accessToken', accessToken);
-                Alert.alert('You have successfully logged in.', 'Welcome back!');
+                Imports.Alert.alert('You have successfully logged in.', 'Welcome back!');
                 navigation.navigate('Account')
                 handleCloseModal();
             } else {
-                Alert.alert('User is not authenticated.');
+                Imports.Alert.alert('User is not authenticated.');
             }
         } catch (error) {
             console.log(error);
-            Alert.alert('It looks like you don`t have an account', 'Please sign up first')
+            Imports.Alert.alert('It looks like you don`t have an account', 'Please sign up first')
         }
 
         setFormData({
@@ -168,76 +167,76 @@ const ModalFormComponent = ({ handleCloseModal }) => {
     }
 
     return (
-        <Modal animationType="slide" statusBarTranslucent={true} transparent={true} visible={true}>
-            <KeyboardAvoidingView style={{ flex: 1 }} behavior='height'>
-                <View style={styles.modalContainer}>
-                    <View style={styles.modalFormStyle}>
-                        <Ionicons name='close-outline' size={25} style={{ marginLeft: 'auto' }} onPress={handleCloseModal} />
-                        <View style={styles.FirstView}>
-                            <Image style={{ width: 85, height: 25 }} source={require('../assets/nykaa-1.png')} />
-                            <Text style={styles.title}>{isSignIn ? 'Signup' : 'Login'} </Text>
-                            <Text style={{ color: 'grey' }}>Get Started & grab best offers on top brands!</Text>
-                        </View>
-                        <View>
+        <Imports.Modal animationType="slide" statusBarTranslucent={true} transparent={true} visible={true}>
+            <Imports.KeyboardAvoidingView style={{ flex: 1 }} behavior='height'>
+                <Imports.View style={styles.modalContainer}>
+                    <Imports.View style={styles.modalFormStyle}>
+                        <Imports.Ionicons name='close-outline' size={25} style={{ marginLeft: 'auto' }} onPress={handleCloseModal} />
+                        <Imports.View style={styles.FirstView}>
+                            <Imports.Image style={{ width: 85, height: 25 }} source={require('../assets/nykaa-1.png')} />
+                            <Imports.Text style={styles.title}>{isSignIn ? 'Signup' : 'Login'} </Imports.Text>
+                            <Imports.Text style={{ color: 'grey' }}>Get Started & grab best offers on top brands!</Imports.Text>
+                        </Imports.View>
+                        <Imports.View>
                             {isSignIn ? (
-                                <View>
-                                    <TextInput
+                                <Imports.View>
+                                    <Imports.TextInput
                                         style={styles.textInputContainer}
                                         placeholder='Enter Name'
                                         onChangeText={(text) => handleFieldFunction('name', text)}
                                         value={formData.name}
                                     />
-                                    {errors.name ? <Text style={styles.errorText}>{errors.name}</Text> : null}
-                                </View>
+                                    {errors.name ? <Imports.Text style={styles.errorText}>{errors.name}</Imports.Text> : null}
+                                </Imports.View>
                             ) : null}
-                            <View>
-                                <TextInput
+                            <Imports.View>
+                                <Imports.TextInput
                                     style={styles.textInputContainer}
                                     placeholder='Enter Email'
                                     onChangeText={(text) => handleFieldFunction('email', text)}
                                     value={formData.email}
                                 />
-                                {errors.email ? <Text style={styles.errorText}>{errors.email}</Text> : null}
-                            </View>
-                            <View>
-                                <TextInput
+                                {errors.email ? <Imports.Text style={styles.errorText}>{errors.email}</Imports.Text> : null}
+                            </Imports.View>
+                            <Imports.View>
+                                <Imports.TextInput
                                     style={styles.textInputContainer}
                                     placeholder='Enter Password'
                                     onChangeText={(text) => handleFieldFunction('password', text)}
                                     value={formData.password}
                                     secureTextEntry={true}
                                 />
-                                {errors.password ? <Text style={styles.errorText}>{errors.password}</Text> : null}
-                            </View>
-                        </View>
-                        <View style={{ flexDirection: 'row', marginVertical: 10 }}>
+                                {errors.password ? <Imports.Text style={styles.errorText}>{errors.password}</Imports.Text> : null}
+                            </Imports.View>
+                        </Imports.View>
+                        <Imports.View style={{ flexDirection: 'row', marginVertical: 10 }}>
                             {isSignIn ? (
-                                <Pressable onPress={handleSignUpFunction} style={({ pressed }) => pressed ? [styles.buttonContainer, styles.pressed] : styles.buttonContainer}>
-                                    <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 16 }}>Sign Up</Text>
-                                </Pressable>
+                                <Imports.Pressable onPress={handleSignUpFunction} style={({ pressed }) => pressed ? [styles.buttonContainer, styles.pressed] : styles.buttonContainer}>
+                                    <Imports.Text style={{ color: 'white', fontWeight: 'bold', fontSize: 16 }}>Sign Up</Imports.Text>
+                                </Imports.Pressable>
                             ) : (
-                                <Pressable onPress={handleLoginFunction} style={({ pressed }) => pressed ? [styles.buttonContainer, styles.pressed] : styles.buttonContainer}>
-                                    <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 16 }}>Log In</Text>
-                                </Pressable>
+                                <Imports.Pressable onPress={handleLoginFunction} style={({ pressed }) => pressed ? [styles.buttonContainer, styles.pressed] : styles.buttonContainer}>
+                                    <Imports.Text style={{ color: 'white', fontWeight: 'bold', fontSize: 16 }}>Log In</Imports.Text>
+                                </Imports.Pressable>
                             )}
-                        </View>
-                        <Text style={{ marginHorizontal: 'auto', marginBottom: 5 }}>
-                            <Text>{isSignIn ? 'Already have an account' : 'Don`t have an account'} <Text style={{ color: '#E80071', fontWeight: 'bold' }} onPress={handleToggleButton}> {isSignIn ? 'Log in' : 'Sign Up'}</Text> </Text>
-                        </Text>
-                        <TouchableOpacity style={styles.googleButton} onPress={handleGoogleAccount}>
-                            <Text style={{ padding: 8, fontSize: 17, color: 'grey', fontWeight: 'bold' }}>Continue With Google</Text>
-                            <Ionicons name="logo-google" size={18} style={{ marginLeft: 'auto', paddingRight: 10 }} />
-                        </TouchableOpacity>
-                    </View>
-                </View>
-            </KeyboardAvoidingView>
-        </Modal>
+                        </Imports.View>
+                        <Imports.Text style={{ marginHorizontal: 'auto', marginBottom: 5 }}>
+                            <Imports.Text>{isSignIn ? 'Already have an account' : 'Don`t have an account'} <Imports.Text style={{ color: '#E80071', fontWeight: 'bold' }} onPress={handleToggleButton}> {isSignIn ? 'Log in' : 'Sign Up'}</Imports.Text> </Imports.Text>
+                        </Imports.Text>
+                        <Imports.TouchableOpacity style={styles.googleButton} onPress={handleGoogleAccount}>
+                            <Imports.Text style={{ padding: 8, fontSize: 17, color: 'grey', fontWeight: 'bold' }}>Continue With Google</Imports.Text>
+                            <Imports.Ionicons name="logo-google" size={18} style={{ marginLeft: 'auto', paddingRight: 10 }} />
+                        </Imports.TouchableOpacity>
+                    </Imports.View>
+                </Imports.View>
+            </Imports.KeyboardAvoidingView>
+        </Imports.Modal>
     );
 }
 
 export default ModalFormComponent;
 
-const styles = StyleSheet.create({
+const styles = Imports.StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#ffffff',

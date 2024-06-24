@@ -1,38 +1,39 @@
-import { StyleSheet, View, Text, Image, Dimensions } from "react-native";
+
+import Imports from "./Imports";
 
 const AccountComponents = () => {
     return(
-        <View style={styles.container}>
-            <View style={styles.innerContainer}>
-                <Text style={styles.title}>EXPOLOR OTHER NYKAA APPS</Text>
-                <View style={styles.flexView}>
-                    <View style={{marginBottom:14}}>
-                        <Text style={styles.textOne}>Nykaa Fashion</Text>
-                        <Text style={styles.textTwo}>Explore lifestyle product collections and curations</Text>
-                    </View>
-                    <View style={{marginLeft:'auto'}}>
-                        <Image style={{width:40, height:40, borderRadius:7 }} source={require('../assets/NykaaFashions.jpg')} />
-                    </View>
-                </View>
-                <View style={[styles.flexView,{borderBottomWidth:0}]}>
-                    <View >
-                        <Text style={styles.textOne}>Nykaa Man</Text>
-                        <Text style={styles.textTwo}>Explore lifestyle product collections and curations</Text>
-                    </View>
-                    <View style={{marginLeft:'auto'}}>
-                        <Image style={{width:40, height:40, borderRadius:7 }} source={{uri:'https://play-lh.googleusercontent.com/xEhJExMBAOHIUTYmSZ3vdT5Hyd5UwsG7qpHRQxUqVs6rBjfnpPGmQHplmeEWZk3q7Q'}} />
-                    </View>
-                </View>
-            </View>
-        </View>
+        <Imports.View style={styles.container}>
+            <Imports.View style={styles.innerContainer}>
+                <Imports.Text style={styles.title}>EXPOLOR OTHER NYKAA APPS</Imports.Text>
+                <Imports.View style={styles.flexView}>
+                    <Imports.View style={{marginBottom:14}}>
+                        <Imports.Text style={styles.textOne}>Nykaa Fashion</Imports.Text>
+                        <Imports.Text style={styles.textTwo}>Explore lifestyle product collections and curations</Imports.Text>
+                    </Imports.View>
+                    <Imports.View style={{marginLeft:'auto'}}>
+                        <Imports.Image style={{width:40, height:40, borderRadius:7 }} source={require('../assets/NykaaFashions.jpg')} />
+                    </Imports.View>
+                </Imports.View>
+                <Imports.View style={[styles.flexView,{borderBottomWidth:0}]}>
+                    <Imports.View >
+                        <Imports.Text style={styles.textOne}>Nykaa Man</Imports.Text>
+                        <Imports.Text style={styles.textTwo}>Explore lifestyle product collections and curations</Imports.Text>
+                    </Imports.View>
+                    <Imports.View style={{marginLeft:'auto'}}>
+                        <Imports.Image style={{width:40, height:40, borderRadius:7 }} source={{uri:'https://play-lh.googleusercontent.com/xEhJExMBAOHIUTYmSZ3vdT5Hyd5UwsG7qpHRQxUqVs6rBjfnpPGmQHplmeEWZk3q7Q'}} />
+                    </Imports.View>
+                </Imports.View>
+            </Imports.View>
+        </Imports.View>
     )
 }
 
 export default AccountComponents;
 
-const screenWidth = Dimensions.get('window').width;
+const screenWidth = Imports.Dimensions.get('window').width;
 
-const styles = StyleSheet.create({
+const styles = Imports.StyleSheet.create({
     container : {
         backgroundColor:'#fcfcfc'
     },

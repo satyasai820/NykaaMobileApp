@@ -1,6 +1,6 @@
 
-import { ScrollView, StyleSheet } from "react-native";
-import { View } from "react-native";
+
+import Imports from "../Components/Imports";
 
 import HomeFirstSwiper from "../Components/HomeComponents/HomeFirstSwiper";
 import SearchBarComponent from "../Components/HomeSearchBarComponent";
@@ -25,10 +25,11 @@ import HomeWatchAndShopSwiperComponent from "../Components/HomeComponents/HomeWa
 import HomeLingerieAndSccessoriesSwiperComponet from "../Components/HomeComponents/HomeLingerieAndAccessoriesSwiperComponent";
 import HomeLastSwiperComponentSwiper from "../Components/HomeComponents/HomeLastSwiperComponent";
 import HomePolicyComponent from "../Components/HomeComponents/HomePolicyComponent";
+
 const BeautyScreen = () => {
     return (
-        <ScrollView showsVerticalScrollIndicator={false}>
-            <View style={styles.container}>
+        <Imports.ScrollView showsVerticalScrollIndicator={false}>
+            <Imports.View style={styles.container}>
                 <SearchBarComponent />
                 <HomeFirstSwiper />
                 <HomeSecondSwiper />
@@ -52,14 +53,14 @@ const BeautyScreen = () => {
                 <HomeLingerieAndSccessoriesSwiperComponet />
                 <HomeLastSwiperComponentSwiper />
                 <HomePolicyComponent />
-            </View>
-        </ScrollView>
+            </Imports.View>
+        </Imports.ScrollView>
     )
 }
 
 export default BeautyScreen;
 
-const styles = StyleSheet.create({
+const styles = Imports.StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#FFFFFF'

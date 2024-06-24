@@ -1,17 +1,18 @@
-import { StyleSheet, Text, View, Image } from "react-native"
+
+import Imports from "../Components/Imports";
 
 const PlayScreen = () => {
     return(
-        <View style={styles.container}>
-            <Image style={styles.image} source={require('../assets/offers-image.png')} />
-        <Text style={{fontSize:18, fontWeight:'bold', color:'grey'}}>This is Play Screen</Text>
-        </View>
+        <Imports.View style={styles.container}>
+            <Imports.Image style={styles.image} source={require('../assets/offers-image.png')} />
+        <Imports.Text style={{fontSize:18, fontWeight:'bold', color:'grey'}}>This is Play Screen</Imports.Text>
+        </Imports.View>
     )
 }
 
 export default PlayScreen;
 
-const styles = StyleSheet.create({
+const styles = Imports.StyleSheet.create({
     container : {
         flex:1,
         backgroundColor:'#FFFFFF',

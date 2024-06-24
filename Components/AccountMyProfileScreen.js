@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, ImageBackground, Image } from 'react-native';
-import {Ionicons} from '@expo/vector-icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Imports from './Imports';
+
 
 const MyProfile = () => {
     const [token, setToken] = useState();
@@ -22,34 +22,34 @@ const MyProfile = () => {
     }
     tokenFun();
     return (
-        <View style={{backgroundColor:'#FFFFFF', flex:1}}>
-            <View style={styles.container}>
-                <ImageBackground
+        <Imports.View style={{backgroundColor:'#FFFFFF', flex:1}}>
+            <Imports.View style={styles.container}>
+                <Imports.ImageBackground
                     source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAhXaPX204Jbf1pnMEWJGnqhXJLWjDFz4SlR_w-EudFPY8fV1e' }}
                     style={styles.imageBackground}
                 >
-                    <View style={{ justifyContent: 'center', alignItems: 'center', flex: 1 }}>
-                        <Ionicons name='person-circle-outline' size={120}  />
-                    </View>
-                </ImageBackground>
-            </View>
-            <View style={styles.innerContainer}>
-                    <Text style={styles.textOne}>Name</Text>
-                    {token ? (<Text style={styles.textTwo}>{name}</Text>) : (<Text style={styles.textTwo}>User Name</Text>)}
+                    <Imports.View style={{ justifyContent: 'center', alignItems: 'center', flex: 1 }}>
+                        <Imports.Ionicons name='person-circle-outline' size={120}  />
+                    </Imports.View>
+                </Imports.ImageBackground>
+            </Imports.View>
+            <Imports.View style={styles.innerContainer}>
+                    <Imports.Text style={styles.textOne}>Name</Imports.Text>
+                    {token ? (<Imports.Text style={styles.textTwo}>{name}</Imports.Text>) : (<Imports.Text style={styles.textTwo}>User Name</Imports.Text>)}
                    
-                </View>
-                <View style={styles.innerContainer}>
-                    <Text style={styles.textOne}>Email</Text>
-                    {token ? (<Text style={styles.textTwo}>{email}</Text>) : (<Text style={styles.textTwo}>user@gmail.com</Text>)}
+                </Imports.View>
+                <Imports.View style={styles.innerContainer}>
+                    <Imports.Text style={styles.textOne}>Email</Imports.Text>
+                    {token ? (<Imports.Text style={styles.textTwo}>{email}</Imports.Text>) : (<Imports.Text style={styles.textTwo}>user@gmail.com</Imports.Text>)}
                     
-                </View>
-        </View>
+                </Imports.View>
+        </Imports.View>
     );
 }
 
 export default MyProfile;
 
-const styles = StyleSheet.create({
+const styles = Imports.StyleSheet.create({
     container: {
         height: 250,
         marginBottom:10

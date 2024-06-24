@@ -1,15 +1,14 @@
-import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity, KeyboardAvoidingView, Dimensions } from "react-native";
-import { AntDesign, Ionicons } from '@expo/vector-icons';
+
 import AccountComponents from "../Components/AccountComponents";
 import AccountFooterComponent from "../Components/AccountFooterComponent";
 import { useState } from "react";
 import ModalFormComponent from "../Components/AccountModalFormComponent";
-import { useNavigation } from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import Imports from "../Components/Imports";
 
 const AccountScreen = () => {
 
-    const navigation = useNavigation();
+    const navigation = Imports.useNavigation(); 
 
     const dataOfText = [{ m1: 'Order', m2: 'Check your orders status (track, return, cancle etc)', icon: 'tablet-portrait-outline', path: 'Orders' }, { m1: 'Profile', m2: 'Edit/update your profike details & more', icon: 'person-outline', path: 'MyProfile' }, { m1: 'Wallet', m2: 'Check your Nykaa Wallet balance', icon: 'card-outline', path: 'Wallet' }, { m1: 'Wishlist', m2: 'Buy from items saved in Wishlist', icon: 'heart-outline', path: 'Wishlist' },]
 
@@ -46,99 +45,99 @@ const AccountScreen = () => {
 
 
     return (
-        <ScrollView showsVerticalScrollIndicator={false}>
-            <View style={styles.mainContainer}>
-                <View style={styles.container}>
-                    <View style={styles.innerContainer}>
-                        <View>
-                            <Text style={styles.textStyle}>Hey</Text>
-                            {token ? (<Text style={styles.textStyle}>{name}</Text>) : (<Text style={styles.textStyle}>there!</Text>)}
-                        </View>
-                        <View style={styles.imageView}>
-                            <Image style={{ width: 100, height: 100 }} source={{ uri: 'https://static.vecteezy.com/system/resources/thumbnails/002/318/271/small_2x/user-profile-icon-free-vector.jpg' }} />
-                        </View>
-                    </View>
+        <Imports.ScrollView showsVerticalScrollIndicator={false}>
+            <Imports.View style={styles.mainContainer}>
+                <Imports.View style={styles.container}>
+                    <Imports.View style={styles.innerContainer}>
+                        <Imports.View>
+                            <Imports.Text style={styles.textStyle}>Hey</Imports.Text>
+                            {token ? (<Imports.Text style={styles.textStyle}>{name}</Imports.Text>) : (<Imports.Text style={styles.textStyle}>there!</Imports.Text>)}
+                        </Imports.View>
+                        <Imports.View style={styles.imageView}>
+                            <Imports.Image style={{ width: 100, height: 100 }} source={{ uri: 'https://static.vecteezy.com/system/resources/thumbnails/002/318/271/small_2x/user-profile-icon-free-vector.jpg' }} />
+                        </Imports.View>
+                    </Imports.View>
                     {token ? (
-                        <View style={[styles.innerContainer, { marginTop: 10 }]}>
-                            <View style={[styles.innerContainer, { flex: 2 }]}>
-                                <Text style={{ fontSize: 15, marginRight: 6, color: 'grey' }}>Logged in via </Text>
-                                <Text>{email}</Text>
-                            </View>
+                        <Imports.View style={[styles.innerContainer, { marginTop: 10 }]}>
+                            <Imports.View style={[styles.innerContainer, { flex: 2 }]}>
+                                <Imports.Text style={{ fontSize: 15, marginRight: 6, color: 'grey' }}>Logged in via </Imports.Text>
+                                <Imports.Text>{email}</Imports.Text>
+                            </Imports.View>
 
-                        </View>
+                        </Imports.View>
                     ) : (
-                        <View style={[styles.innerContainer, { marginTop: 10 }]}>
-                            <View style={[styles.innerContainer, { flex: 1 }]}>
-                                <Text onPress={handleModalFormOpen} style={styles.signInWithText}>Signup or Login </Text>
-                                <AntDesign name="arrowright" size={15} color='#E80071' />
-                            </View>
-                            {/* <View style={{ flex: 2, borderTopWidth: 1, borderTopColor: '#ccc' }}></View> */}
-                        </View>
+                        <Imports.View style={[styles.innerContainer, { marginTop: 10 }]}>
+                            <Imports.View style={[styles.innerContainer, { flex: 1 }]}>
+                                <Imports.Text onPress={handleModalFormOpen} style={styles.signInWithText}>Signup or Login </Imports.Text>
+                                <Imports.AntDesign name="arrowright" size={15} color='#E80071' />
+                            </Imports.View>
+                            {/* <Imports.View style={{ flex: 2, borderTopWidth: 1, borderTopColor: '#ccc' }}></Imports.View> */}
+                        </Imports.View>
                     )}
 
                     {dataOfText.map((item, index) => {
                         const isLastItem = index === textData.length - 1;
                         return (
-                            <TouchableOpacity onPress={() => handleNavigeFunction(item.path)} key={index} style={{
+                            <Imports.TouchableOpacity onPress={() => handleNavigeFunction(item.path)} key={index} style={{
                                 borderBottomWidth: isLastItem ? 0 : 1,
                                 borderBottomColor: isLastItem ? 'transparent' : '#ccc',
                                 marginTop: 20
                             }}>
-                                <View style={styles.innerContainer}>
-                                    <View>
-                                        <Text style={{ fontSize: 17, marginVertical: 3 }}>{item.m1}</Text>
-                                    </View>
-                                    <View style={{ marginLeft: 'auto' }}>
-                                        <Ionicons name={item.icon} size={21} />
-                                    </View>
-                                </View>
-                                <View>
-                                    <Text style={{ fontSize: 13, color: 'grey', marginBottom: 10 }}>{item.m2}</Text>
-                                </View>
-                            </TouchableOpacity>
+                                <Imports.View style={styles.innerContainer}>
+                                    <Imports.View>
+                                        <Imports.Text style={{ fontSize: 17, marginVertical: 3 }}>{item.m1}</Imports.Text>
+                                    </Imports.View>
+                                    <Imports.View style={{ marginLeft: 'auto' }}>
+                                        <Imports.Ionicons name={item.icon} size={21} />
+                                    </Imports.View>
+                                </Imports.View>
+                                <Imports.View>
+                                    <Imports.Text style={{ fontSize: 13, color: 'grey', marginBottom: 10 }}>{item.m2}</Imports.Text>
+                                </Imports.View>
+                            </Imports.TouchableOpacity>
                         );
                     })}
 
                     {textData.map((item, index) => {
                         const isLastItem = index === textData.length - 1;
                         return (
-                            <View key={index} style={{
+                            <Imports.View key={index} style={{
                                 borderBottomWidth: isLastItem ? 0 : 1,
                                 borderBottomColor: isLastItem ? 'transparent' : '#ccc',
                                 marginTop: 20
                             }}>
-                                <View style={styles.innerContainer}>
-                                    <View>
-                                        <Text style={{ fontSize: 17, marginVertical: 3 }}>{item.m1}</Text>
-                                    </View>
-                                    <View style={{ marginLeft: 'auto' }}>
-                                        <Ionicons name={item.icon} size={21} />
-                                    </View>
-                                </View>
-                                <View>
-                                    <Text style={{ fontSize: 13, color: 'grey', marginBottom: 10 }}>{item.m2}</Text>
-                                </View>
-                            </View>
+                                <Imports.View style={styles.innerContainer}>
+                                    <Imports.View>
+                                        <Imports.Text style={{ fontSize: 17, marginVertical: 3 }}>{item.m1}</Imports.Text>
+                                    </Imports.View>
+                                    <Imports.View style={{ marginLeft: 'auto' }}>
+                                        <Imports.Ionicons name={item.icon} size={21} />
+                                    </Imports.View>
+                                </Imports.View>
+                                <Imports.View>
+                                    <Imports.Text style={{ fontSize: 13, color: 'grey', marginBottom: 10 }}>{item.m2}</Imports.Text>
+                                </Imports.View>
+                            </Imports.View>
                         );
                     })}
 
-                </View>
-                <View>
+                </Imports.View>
+                <Imports.View>
                     {open ? (<ModalFormComponent handleCloseModal={handleCloseModal} />) : ('')}
-                </View>
+                </Imports.View>
 
-            </View>
+            </Imports.View>
             <AccountComponents />
             <AccountFooterComponent />
-        </ScrollView>
+        </Imports.ScrollView>
     )
 }
 
 export default AccountScreen;
 
-const screenWidth = Dimensions.get('window').width
+const screenWidth = Imports.Dimensions.get('window').width
 
-const styles = StyleSheet.create({
+const styles = Imports.StyleSheet.create({
     mainContainer: {
         flex: 1,
         backgroundColor: '#FFFFFF'

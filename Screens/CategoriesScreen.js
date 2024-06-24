@@ -1,11 +1,12 @@
-import { View, Text } from "react-native";
+
 import ShopComponent from "../Components/CategoriesComponents/ShopComponent";
+import Imports from "../Components/Imports";
 
 const CategoriesScreen = () => {
     return(
-        <View style={{backgroundColor:'#FFFFFF', flex:1}}>
+        <Imports.View style={{backgroundColor:'#FFFFFF', flex:1}}>
         <ShopComponent />
-        </View>
+        </Imports.View>
     )
 }
 

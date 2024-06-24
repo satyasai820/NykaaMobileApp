@@ -3,6 +3,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useEffect, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigation } from "@react-navigation/native";
+import Imports from "./Imports";
 
 const AccountFooterComponent = () => {
     const navigation = useNavigation();
@@ -30,38 +31,38 @@ const AccountFooterComponent = () => {
 
     return (
         <>
-            <View style={styles.container}>
-                <View style={styles.innerContainer}>
-                    <View style={{ justifyContent: 'center', alignItems: 'center', marginVertical: 10 }}>
-                        <Image style={{ width: 100, height: 25 }} source={require('../assets/nykaa-1 1.png')} />
-                        <Text style={{ color: 'grey' }}>ver 3.5.3(25934)</Text>
-                    </View>
-                    <View style={styles.loopContainer}>
+            <Imports.View style={styles.container}>
+                <Imports.View style={styles.innerContainer}>
+                    <Imports.View style={{ justifyContent: 'center', alignItems: 'center', marginVertical: 10 }}>
+                        <Imports.Image style={{ width: 100, height: 25 }} source={require('../assets/nykaa-1 1.png')} />
+                        <Imports.Text style={{ color: 'grey' }}>ver 3.5.3(25934)</Imports.Text>
+                    </Imports.View>
+                    <Imports.View style={styles.loopContainer}>
                         {iconsData.map((item, index) => (
-                            <View style={styles.iconText} key={index}>
-                                <View style={{ flexDirection: 'row' }}>
+                            <Imports.View style={styles.iconText} key={index}>
+                                <Imports.View style={{ flexDirection: 'row' }}>
                                     <Ionicons style={styles.icon} name={item.icon} size={25} color='#7DB0CF' />
-                                </View>
-                                <Text style={{ color: '#FFFFFF', marginVertical: 4, textAlign: 'center' }}>{item.m1}</Text>
-                            </View>
+                                </Imports.View>
+                                <Imports.Text style={{ color: '#FFFFFF', marginVertical: 4, textAlign: 'center' }}>{item.m1}</Imports.Text>
+                            </Imports.View>
                         ))}
-                    </View>
+                    </Imports.View>
                     {token ? (
-                        <TouchableOpacity style={styles.logOutButton} onPress={() => setOpen(true)}>
-                            <Text style={{ fontSize: 18, color: '#FFFFFF', fontWeight: 'bold' }}>Log Out</Text>
-                        </TouchableOpacity>
+                        <Imports.TouchableOpacity style={styles.logOutButton} onPress={() => setOpen(true)}>
+                            <Imports.Text style={{ fontSize: 18, color: '#FFFFFF', fontWeight: 'bold' }}>Log Out</Imports.Text>
+                        </Imports.TouchableOpacity>
                     ) : ('')}
-                </View>
-            </View>
+                </Imports.View>
+            </Imports.View>
             <Modal transparent={true} animationType="slide" visible={open} statusBarTranslucent={true}>
-                <View style={styles.ModalStyle}>
-                    <View style={styles.innerModalContainer}>
-                        <Text style={styles.title}>Are You Sure you want to logout?</Text>
-                        <Text style={styles.text} onPress={handleLogOut}>Logout</Text>
-                        <Text style={styles.text} onPress={handleLogOut}>Logout from all devices</Text>
-                        <Text style={styles.text} onPress={() => setOpen(false)}>Cancel</Text>
-                    </View>
-                </View>
+                <Imports.View style={styles.ModalStyle}>
+                    <Imports.View style={styles.innerModalContainer}>
+                        <Imports.Text style={styles.title}>Are You Sure you want to logout?</Imports.Text>
+                        <Imports.Text style={styles.text} onPress={handleLogOut}>Logout</Imports.Text>
+                        <Imports.Text style={styles.text} onPress={handleLogOut}>Logout from all devices</Imports.Text>
+                        <Imports.Text style={styles.text} onPress={() => setOpen(false)}>Cancel</Imports.Text>
+                    </Imports.View>
+                </Imports.View>
             </Modal>
         </>
 
@@ -70,7 +71,7 @@ const AccountFooterComponent = () => {
 
 export default AccountFooterComponent;
 
-const styles = StyleSheet.create({
+const styles = Imports.StyleSheet.create({
     container: {
         backgroundColor: '#3A4047'
     },
